@@ -1,0 +1,1238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Faith-Based Luxury Affirmation Artwork Prompt Generator"
+    />
+    <title>Faith-Based Luxury Affirmation Artwork Prompt Generator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="app-wrapper">
+      <header class="top-section" id="topSection">
+        <h1 class="app-title">
+          Faith-Based Luxury Affirmation Artwork Prompt Generator
+        </h1>
+        <div class="branding-container">
+          <div class="announcement-bar">
+            <div class="announcement-track">
+              <span
+                >The Glam Shop ✦ Luxury AI Prompt Generators ✦ Professional
+                Templates ✦ Build Beautiful Prompts ✦</span
+              >
+              <span
+                >The Glam Shop ✦ Luxury AI Prompt Generators ✦ Professional
+                Templates ✦ Build Beautiful Prompts ✦</span
+              >
+            </div>
+          </div>
+
+          <img
+            id="generatorHeaderImage"
+            class="generator-header-image"
+            src="images/header-banner.jpg"
+            alt="Generator Banner"
+          />
+        </div>
+      </header>
+
+      <main class="generator-workspace" id="generatorWorkspace">
+        <section
+          class="presets-section"
+          id="presetsSection"
+          aria-labelledby="presetsHeading"
+        >
+          <h2 id="presetsHeading">Presets</h2>
+
+          <div
+            class="presets-container"
+            id="presetsContainer"
+            role="group"
+            aria-label="Presets"
+          ></div>
+        </section>
+
+        <section
+          class="main-controls-section"
+          id="mainControlsSection"
+          aria-label="Main Controls"
+        >
+          <div class="main-controls" id="mainControls">
+            <button
+              type="button"
+              id="generatePromptBtn"
+              class="primary-action-btn"
+            >
+              Generate Prompt
+            </button>
+
+            <button
+              type="button"
+              id="randomizeBtn"
+              class="secondary-action-btn"
+            >
+              Randomize
+            </button>
+
+            <button
+              type="button"
+              id="copyPromptBtn"
+              class="secondary-action-btn"
+            >
+              Copy Prompt
+            </button>
+
+            <button
+              type="button"
+              id="savePromptBtn"
+              class="secondary-action-btn"
+            >
+              Save Prompt
+            </button>
+
+            <button type="button" id="clearAllBtn" class="danger-action-btn">
+              Clear All
+            </button>
+          </div>
+        </section>
+
+        <section
+          class="generator-categories-section"
+          id="generatorCategoriesSection"
+          aria-labelledby="generatorCategoriesHeading"
+        >
+          <h2 id="generatorCategoriesHeading" class="visually-hidden">
+            Generator Categories
+          </h2>
+
+          <!-- Artwork Style -->
+
+          <section
+            class="category-card"
+            id="artworkStyleSection"
+            data-category="artworkStyle"
+          >
+            <button
+              type="button"
+              class="category-toggle"
+              id="artworkStyleToggle"
+              aria-expanded="true"
+              aria-controls="artworkStyleContent"
+            >
+              <span>Artwork Style</span>
+            </button>
+
+            <div class="category-content" id="artworkStyleContent">
+              <div class="category-header">
+                <label for="artworkStyle">Artwork Style</label>
+
+                <div class="category-actions">
+                  <button
+                    type="button"
+                    class="lock-btn"
+                    id="artworkStyleLock"
+                    data-lock-target="artworkStyle"
+                    aria-pressed="false"
+                  >
+                    Lock
+                  </button>
+
+                  <button
+                    type="button"
+                    class="clear-category-btn"
+                    id="clearArtworkStyle"
+                    data-clear-target="artworkStyle"
+                  >
+                    Clear
+                  </button>
+                </div>
+              </div>
+
+              <select id="artworkStyle" name="artworkStyle">
+                <option value="None">None</option>
+              </select>
+            </div>
+          </section>
+
+          <!-- Faith Theme -->
+
+          <section
+            class="category-card"
+            id="faithThemeSection"
+            data-category="faithTheme"
+          >
+            <button
+              type="button"
+              class="category-toggle"
+              id="faithThemeToggle"
+              aria-expanded="true"
+              aria-controls="faithThemeContent"
+            >
+              <span>Faith Theme</span>
+            </button>
+
+            <div class="category-content" id="faithThemeContent">
+              <div class="category-header">
+                <label for="faithTheme">Faith Theme</label>
+
+                <div class="category-actions">
+                  <button
+                    type="button"
+                    class="lock-btn"
+                    id="faithThemeLock"
+                    data-lock-target="faithTheme"
+                    aria-pressed="false"
+                  >
+                    Lock
+                  </button>
+
+                  <button
+                    type="button"
+                    class="clear-category-btn"
+                    id="clearFaithTheme"
+                    data-clear-target="faithTheme"
+                  >
+                    Clear
+                  </button>
+                </div>
+              </div>
+
+              <select id="faithTheme" name="faithTheme">
+                <option value="None">None</option>
+              </select>
+
+              <input
+                type="text"
+                id="faithThemeCustom"
+                name="faithThemeCustom"
+                placeholder="Add a custom faith theme"
+                maxlength="80"
+                autocomplete="off"
+              />
+            </div>
+          </section>
+
+          <!-- Empowerment Theme -->
+
+          <section
+            class="category-card"
+            id="empowermentThemeSection"
+            data-category="empowermentTheme"
+          >
+            <button
+              type="button"
+              class="category-toggle"
+              id="empowermentThemeToggle"
+              aria-expanded="true"
+              aria-controls="empowermentThemeContent"
+            >
+              <span>Empowerment Theme</span>
+            </button>
+
+            <div class="category-content" id="empowermentThemeContent">
+              <div class="category-header">
+                <label>Empowerment Theme</label>
+
+                <div class="category-actions">
+                  <button
+                    type="button"
+                    class="lock-btn"
+                    id="empowermentThemeLock"
+                    data-lock-target="empowermentTheme"
+                    aria-pressed="false"
+                  >
+                    Lock
+                  </button>
+
+                  <button
+                    type="button"
+                    class="clear-category-btn"
+                    id="clearEmpowermentTheme"
+                    data-clear-target="empowermentTheme"
+                  >
+                    Clear
+                  </button>
+                </div>
+              </div>
+
+              <div
+                class="chip-group"
+                id="empowermentTheme"
+                data-input-type="chip-button"
+              ></div>
+
+              <input
+                type="text"
+                id="empowermentThemeCustom"
+                name="empowermentThemeCustom"
+                placeholder="Add a custom empowerment theme"
+                maxlength="80"
+                autocomplete="off"
+              />
+            </div>
+          </section>
+
+          <!-- Subject -->
+
+          <section
+            class="category-card"
+            id="subjectSection"
+            data-category="subject"
+          >
+            <button
+              type="button"
+              class="category-toggle"
+              id="subjectToggle"
+              aria-expanded="true"
+              aria-controls="subjectContent"
+            >
+              <span>Subject</span>
+            </button>
+
+            <div class="category-content" id="subjectContent">
+              <div class="category-header">
+                <label for="subject">Subject</label>
+
+                <div class="category-actions">
+                  <button
+                    type="button"
+                    class="lock-btn"
+                    id="subjectLock"
+                    data-lock-target="subject"
+                    aria-pressed="false"
+                  >
+                    Lock
+                  </button>
+
+                  <button
+                    type="button"
+                    class="clear-category-btn"
+                    id="clearSubject"
+                    data-clear-target="subject"
+                  >
+                    Clear
+                  </button>
+                </div>
+              </div>
+
+              <select id="subject" name="subject">
+                <option value="None">None</option>
+              </select>
+
+              <input
+                type="text"
+                id="subjectCustom"
+                name="subjectCustom"
+                placeholder="Add a custom subject"
+                maxlength="100"
+                autocomplete="off"
+              />
+            </div>
+          </section>
+
+          <!-- Body Type -->
+
+          <section
+            class="category-card"
+            id="bodyTypeSection"
+            data-category="bodyType"
+          >
+            <button
+              type="button"
+              class="category-toggle"
+              id="bodyTypeToggle"
+              aria-expanded="true"
+              aria-controls="bodyTypeContent"
+            >
+              <span>Body Type</span>
+            </button>
+
+            <div class="category-content" id="bodyTypeContent">
+              <div class="category-header">
+                <label for="bodyType">Body Type</label>
+
+                <div class="category-actions">
+                  <button
+                    type="button"
+                    class="lock-btn"
+                    id="bodyTypeLock"
+                    data-lock-target="bodyType"
+                    aria-pressed="false"
+                  >
+                    Lock
+                  </button>
+
+                  <button
+                    type="button"
+                    class="clear-category-btn"
+                    id="clearBodyType"
+                    data-clear-target="bodyType"
+                  >
+                    Clear
+                  </button>
+                </div>
+              </div>
+
+              <select id="bodyType" name="bodyType">
+                <option value="None">None</option>
+              </select>
+
+              <input
+                type="text"
+                id="bodyTypeCustom"
+                name="bodyTypeCustom"
+                placeholder="Add a custom body type"
+                maxlength="100"
+                autocomplete="off"
+              />
+            </div>
+          </section>
+
+          <!-- Ethnicity -->
+
+          <section
+            class="category-card"
+            id="ethnicitySection"
+            data-category="ethnicity"
+          >
+            <button
+              type="button"
+              class="category-toggle"
+              id="ethnicityToggle"
+              aria-expanded="true"
+              aria-controls="ethnicityContent"
+            >
+              <span>Ethnicity</span>
+            </button>
+
+            <div class="category-content" id="ethnicityContent">
+              <div class="category-header">
+                <label for="ethnicity">Ethnicity</label>
+
+                <div class="category-actions">
+                  <button
+                    type="button"
+                    class="lock-btn"
+                    id="ethnicityLock"
+                    data-lock-target="ethnicity"
+                    aria-pressed="false"
+                  >
+                    Lock
+                  </button>
+
+                  <button
+                    type="button"
+                    class="clear-category-btn"
+                    id="clearEthnicity"
+                    data-clear-target="ethnicity"
+                  >
+                    Clear
+                  </button>
+                </div>
+              </div>
+
+              <select id="ethnicity" name="ethnicity">
+                <option value="None">None</option>
+              </select>
+
+              <input
+                type="text"
+                id="ethnicityCustom"
+                name="ethnicityCustom"
+                placeholder="Add a custom ethnicity"
+                maxlength="100"
+                autocomplete="off"
+              />
+            </div>
+          </section>
+
+          <!-- Age Group -->
+
+          <section
+            class="category-card"
+            id="ageGroupSection"
+            data-category="ageGroup"
+          >
+            <button
+              type="button"
+              class="category-toggle"
+              id="ageGroupToggle"
+              aria-expanded="true"
+              aria-controls="ageGroupContent"
+            >
+              <span>Age Group</span>
+            </button>
+
+            <div class="category-content" id="ageGroupContent">
+              <div class="category-header">
+                <label for="ageGroup">Age Group</label>
+
+                <div class="category-actions">
+                  <button
+                    type="button"
+                    class="lock-btn"
+                    id="ageGroupLock"
+                    data-lock-target="ageGroup"
+                    aria-pressed="false"
+                  >
+                    Lock
+                  </button>
+
+                  <button
+                    type="button"
+                    class="clear-category-btn"
+                    id="clearAgeGroup"
+                    data-clear-target="ageGroup"
+                  >
+                    Clear
+                  </button>
+                </div>
+              </div>
+
+              <select id="ageGroup" name="ageGroup">
+                <option value="None">None</option>
+              </select>
+
+              <input
+                type="text"
+                id="ageGroupCustom"
+                name="ageGroupCustom"
+                placeholder="Add a custom age group"
+                maxlength="100"
+                autocomplete="off"
+              />
+            </div>
+          </section>
+
+          <!-- Environment -->
+
+          <section
+            class="category-card"
+            id="environmentSection"
+            data-category="environment"
+          >
+            <button
+              type="button"
+              class="category-toggle"
+              id="environmentToggle"
+              aria-expanded="true"
+              aria-controls="environmentContent"
+            >
+              <span>Environment</span>
+            </button>
+
+            <div class="category-content" id="environmentContent">
+              <div class="category-header">
+                <label for="environment">Environment</label>
+
+                <div class="category-actions">
+                  <button
+                    type="button"
+                    class="lock-btn"
+                    id="environmentLock"
+                    data-lock-target="environment"
+                    aria-pressed="false"
+                  >
+                    Lock
+                  </button>
+
+                  <button
+                    type="button"
+                    class="clear-category-btn"
+                    id="clearEnvironment"
+                    data-clear-target="environment"
+                  >
+                    Clear
+                  </button>
+                </div>
+              </div>
+
+              <select id="environment" name="environment">
+                <option value="None">None</option>
+              </select>
+
+              <input
+                type="text"
+                id="environmentCustom"
+                name="environmentCustom"
+                placeholder="Add a custom environment"
+                maxlength="120"
+                autocomplete="off"
+              />
+            </div>
+          </section>
+
+          <!-- Color Palette -->
+
+          <section
+            class="category-card"
+            id="colorPaletteSection"
+            data-category="colorPalette"
+          >
+            <button
+              type="button"
+              class="category-toggle"
+              id="colorPaletteToggle"
+              aria-expanded="true"
+              aria-controls="colorPaletteContent"
+            >
+              <span>Color Palette</span>
+            </button>
+
+            <div class="category-content" id="colorPaletteContent">
+              <div class="category-header">
+                <label>Color Palette</label>
+
+                <div class="category-actions">
+                  <button
+                    type="button"
+                    class="lock-btn"
+                    id="colorPaletteLock"
+                    data-lock-target="colorPalette"
+                    aria-pressed="false"
+                  >
+                    Lock
+                  </button>
+
+                  <button
+                    type="button"
+                    class="clear-category-btn"
+                    id="clearColorPalette"
+                    data-clear-target="colorPalette"
+                  >
+                    Clear
+                  </button>
+                </div>
+              </div>
+
+              <div
+                class="chip-group"
+                id="colorPalette"
+                data-input-type="chip-button"
+              ></div>
+
+              <input
+                type="text"
+                id="colorPaletteCustom"
+                name="colorPaletteCustom"
+                placeholder="Add a custom color palette"
+                maxlength="80"
+                autocomplete="off"
+              />
+            </div>
+          </section>
+
+          <!-- Typography Style -->
+
+          <section
+            class="category-card"
+            id="typographyStyleSection"
+            data-category="typographyStyle"
+          >
+            <button
+              type="button"
+              class="category-toggle"
+              id="typographyStyleToggle"
+              aria-expanded="true"
+              aria-controls="typographyStyleContent"
+            >
+              <span>Typography Style</span>
+            </button>
+
+            <div class="category-content" id="typographyStyleContent">
+              <div class="category-header">
+                <label for="typographyStyle">Typography Style</label>
+
+                <div class="category-actions">
+                  <button
+                    type="button"
+                    class="lock-btn"
+                    id="typographyStyleLock"
+                    data-lock-target="typographyStyle"
+                    aria-pressed="false"
+                  >
+                    Lock
+                  </button>
+
+                  <button
+                    type="button"
+                    class="clear-category-btn"
+                    id="clearTypographyStyle"
+                    data-clear-target="typographyStyle"
+                  >
+                    Clear
+                  </button>
+                </div>
+              </div>
+
+              <select id="typographyStyle" name="typographyStyle">
+                <option value="None">None</option>
+              </select>
+
+              <input
+                type="text"
+                id="typographyStyleCustom"
+                name="typographyStyleCustom"
+                placeholder="Add a custom typography style"
+                maxlength="80"
+                autocomplete="off"
+              />
+            </div>
+          </section>
+
+          <!-- Lighting -->
+
+          <section
+            class="category-card"
+            id="lightingSection"
+            data-category="lighting"
+          >
+            <button
+              type="button"
+              class="category-toggle"
+              id="lightingToggle"
+              aria-expanded="true"
+              aria-controls="lightingContent"
+            >
+              <span>Lighting</span>
+            </button>
+
+            <div class="category-content" id="lightingContent">
+              <div class="category-header">
+                <label for="lighting">Lighting</label>
+
+                <div class="category-actions">
+                  <button
+                    type="button"
+                    class="lock-btn"
+                    id="lightingLock"
+                    data-lock-target="lighting"
+                    aria-pressed="false"
+                  >
+                    Lock
+                  </button>
+
+                  <button
+                    type="button"
+                    class="clear-category-btn"
+                    id="clearLighting"
+                    data-clear-target="lighting"
+                  >
+                    Clear
+                  </button>
+                </div>
+              </div>
+
+              <select id="lighting" name="lighting">
+                <option value="None">None</option>
+              </select>
+
+              <input
+                type="text"
+                id="lightingCustom"
+                name="lightingCustom"
+                placeholder="Add custom lighting"
+                maxlength="80"
+                autocomplete="off"
+              />
+            </div>
+          </section>
+
+          <!-- Composition -->
+
+          <section
+            class="category-card"
+            id="compositionSection"
+            data-category="composition"
+          >
+            <button
+              type="button"
+              class="category-toggle"
+              id="compositionToggle"
+              aria-expanded="true"
+              aria-controls="compositionContent"
+            >
+              <span>Composition</span>
+            </button>
+
+            <div class="category-content" id="compositionContent">
+              <div class="category-header">
+                <label for="composition">Composition</label>
+
+                <div class="category-actions">
+                  <button
+                    type="button"
+                    class="lock-btn"
+                    id="compositionLock"
+                    data-lock-target="composition"
+                    aria-pressed="false"
+                  >
+                    Lock
+                  </button>
+
+                  <button
+                    type="button"
+                    class="clear-category-btn"
+                    id="clearComposition"
+                    data-clear-target="composition"
+                  >
+                    Clear
+                  </button>
+                </div>
+              </div>
+
+              <select id="composition" name="composition">
+                <option value="None">None</option>
+              </select>
+
+              <input
+                type="text"
+                id="compositionCustom"
+                name="compositionCustom"
+                placeholder="Add a custom composition"
+                maxlength="100"
+                autocomplete="off"
+              />
+            </div>
+          </section>
+
+          <!-- Visual Details -->
+
+          <section
+            class="category-card"
+            id="visualDetailsSection"
+            data-category="visualDetails"
+          >
+            <button
+              type="button"
+              class="category-toggle"
+              id="visualDetailsToggle"
+              aria-expanded="true"
+              aria-controls="visualDetailsContent"
+            >
+              <span>Visual Details</span>
+            </button>
+
+            <div class="category-content" id="visualDetailsContent">
+              <div class="category-header">
+                <label>Visual Details</label>
+
+                <div class="category-actions">
+                  <button
+                    type="button"
+                    class="lock-btn"
+                    id="visualDetailsLock"
+                    data-lock-target="visualDetails"
+                    aria-pressed="false"
+                  >
+                    Lock
+                  </button>
+
+                  <button
+                    type="button"
+                    class="clear-category-btn"
+                    id="clearVisualDetails"
+                    data-clear-target="visualDetails"
+                  >
+                    Clear
+                  </button>
+                </div>
+              </div>
+
+              <div
+                class="multi-chip-group"
+                id="visualDetails"
+                data-input-type="multi-select"
+              ></div>
+
+              <input
+                type="text"
+                id="visualDetailsCustom"
+                name="visualDetailsCustom"
+                placeholder="Add custom visual details"
+                maxlength="120"
+                autocomplete="off"
+              />
+            </div>
+          </section>
+
+          <!-- Affirmation Text -->
+
+          <section
+            class="category-card"
+            id="affirmationTextSection"
+            data-category="affirmationText"
+          >
+            <button
+              type="button"
+              class="category-toggle"
+              id="affirmationTextToggle"
+              aria-expanded="true"
+              aria-controls="affirmationTextContent"
+            >
+              <span>Affirmation Text</span>
+            </button>
+
+            <div class="category-content" id="affirmationTextContent">
+              <div class="category-header">
+                <label for="affirmationText">Affirmation Text</label>
+
+                <div class="category-actions">
+                  <button
+                    type="button"
+                    class="lock-btn"
+                    id="affirmationTextLock"
+                    data-lock-target="affirmationText"
+                    aria-pressed="false"
+                  >
+                    Lock
+                  </button>
+
+                  <button
+                    type="button"
+                    class="clear-category-btn"
+                    id="clearAffirmationText"
+                    data-clear-target="affirmationText"
+                  >
+                    Clear
+                  </button>
+                </div>
+              </div>
+
+              <textarea
+                id="affirmationText"
+                name="affirmationText"
+                maxlength="500"
+                placeholder="Enter the affirmation or inspirational message for the artwork"
+              ></textarea>
+            </div>
+          </section>
+
+          <!-- Additional Prompt Instructions -->
+
+          <section
+            class="category-card"
+            id="additionalInstructionsSection"
+            data-category="additionalInstructions"
+          >
+            <button
+              type="button"
+              class="category-toggle"
+              id="additionalInstructionsToggle"
+              aria-expanded="true"
+              aria-controls="additionalInstructionsContent"
+            >
+              <span>Additional Prompt Instructions</span>
+            </button>
+
+            <div class="category-content" id="additionalInstructionsContent">
+              <div class="category-header">
+                <label for="additionalInstructions">
+                  Additional Prompt Instructions
+                </label>
+
+                <div class="category-actions">
+                  <button
+                    type="button"
+                    class="lock-btn"
+                    id="additionalInstructionsLock"
+                    data-lock-target="additionalInstructions"
+                    aria-pressed="false"
+                  >
+                    Lock
+                  </button>
+
+                  <button
+                    type="button"
+                    class="clear-category-btn"
+                    id="clearAdditionalInstructions"
+                    data-clear-target="additionalInstructions"
+                  >
+                    Clear
+                  </button>
+                </div>
+              </div>
+
+              <textarea
+                id="additionalInstructions"
+                name="additionalInstructions"
+                maxlength="700"
+                placeholder="Add any final creative instructions"
+              ></textarea>
+            </div>
+          </section>
+        </section>
+
+        <section
+          class="prompt-output-section"
+          id="promptOutputSection"
+          aria-labelledby="promptOutputHeading"
+        >
+          <h2 id="promptOutputHeading">Final Prompt</h2>
+
+          <div class="prompt-output-card" id="promptOutputCard">
+            <textarea
+              id="finalPrompt"
+              class="final-prompt-output"
+              readonly
+              aria-label="Final Prompt"
+            ></textarea>
+
+            <div class="prompt-output-footer">
+              <div class="prompt-output-meta">
+                <span id="characterCounter" class="character-counter">
+                  0 Characters
+                </span>
+
+                <span id="promptQualityScore" class="prompt-quality-score">
+                  Quality Score: 0
+                </span>
+              </div>
+
+              <div class="prompt-output-actions">
+                <button
+                  type="button"
+                  id="copyFinalPromptBtn"
+                  class="secondary-action-btn"
+                >
+                  Copy Prompt
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="premium-outputs-section"
+          id="premiumOutputsSection"
+          aria-labelledby="premiumOutputsHeading"
+        >
+          <h2 id="premiumOutputsHeading">Premium Outputs</h2>
+
+  <div class="premium-outputs-grid" id="premiumOutputsGrid">
+
+    <article class="premium-output-card">
+      <h3>Suno AI Music Prompt</h3>
+      <textarea
+        id="sunoPromptOutput"
+        class="premium-output-box"
+        readonly
+        aria-label="Suno AI Music Prompt"
+      ></textarea>
+      <button type="button" id="copySunoPromptBtn" class="secondary-action-btn">
+        Copy Suno Prompt
+      </button>
+    </article>
+
+    <article class="premium-output-card">
+      <h3>Video Script Prompt</h3>
+      <textarea
+        id="videoScriptOutput"
+        class="premium-output-box"
+        readonly
+        aria-label="Video Script Prompt"
+      ></textarea>
+      <button type="button" id="copyVideoScriptBtn" class="secondary-action-btn">
+        Copy Video Script
+      </button>
+    </article>
+
+    <article class="premium-output-card">
+      <h3>Marketing Prompt</h3>
+      <textarea
+        id="marketingPromptOutput"
+        class="premium-output-box"
+        readonly
+        aria-label="Marketing Prompt"
+      ></textarea>
+      <button type="button" id="copyMarketingPromptBtn" class="secondary-action-btn">
+        Copy Marketing Prompt
+      </button>
+    </article>
+
+    <article class="premium-output-card">
+      <h3>Custom GPT Builder Prompt</h3>
+      <textarea
+        id="customGptPromptOutput"
+        class="premium-output-box"
+        readonly
+        aria-label="Custom GPT Builder Prompt"
+      ></textarea>
+      <button type="button" id="copyCustomGptPromptBtn" class="secondary-action-btn">
+        Copy GPT Builder Prompt
+      </button>
+    </article>
+
+  </div>
+</section>
+</section>
+          class="prompt-variations-section"
+          id="promptVariationsSection"
+          aria-labelledby="promptVariationsHeading"
+        >
+          <h2 id="promptVariationsHeading">Prompt Variations</h2>
+
+          <div
+            class="prompt-variations-container"
+            id="promptVariationsContainer"
+          >
+            <article class="variation-card">
+              <textarea
+                id="variationOutput1"
+                class="variation-output"
+                readonly
+                aria-label="Prompt Variation 1"
+              ></textarea>
+
+              <button
+                type="button"
+                id="copyVariation1Btn"
+                class="secondary-action-btn"
+              >
+                Copy
+              </button>
+            </article>
+
+            <article class="variation-card">
+              <textarea
+                id="variationOutput2"
+                class="variation-output"
+                readonly
+                aria-label="Prompt Variation 2"
+              ></textarea>
+
+              <button
+                type="button"
+                id="copyVariation2Btn"
+                class="secondary-action-btn"
+              >
+                Copy
+              </button>
+            </article>
+
+            <article class="variation-card">
+              <textarea
+                id="variationOutput3"
+                class="variation-output"
+                readonly
+                aria-label="Prompt Variation 3"
+              ></textarea>
+
+              <button
+                type="button"
+                id="copyVariation3Btn"
+                class="secondary-action-btn"
+              >
+                Copy
+              </button>
+            </article>
+
+            <article class="variation-card">
+              <textarea
+                id="variationOutput4"
+                class="variation-output"
+                readonly
+                aria-label="Prompt Variation 4"
+              ></textarea>
+
+              <button
+                type="button"
+                id="copyVariation4Btn"
+                class="secondary-action-btn"
+              >
+                Copy
+              </button>
+            </article>
+          </div>
+        </section>
+
+        <section
+          class="prompt-history-section"
+          id="promptHistorySection"
+          aria-labelledby="promptHistoryHeading"
+        >
+          <h2 id="promptHistoryHeading">Prompt History</h2>
+
+          <div
+            class="prompt-history-container"
+            id="promptHistoryContainer"
+          ></div>
+        </section>
+
+        <template id="promptHistoryTemplate">
+          <article class="history-card">
+            <div class="history-content">
+              <p class="history-preview"></p>
+              <time class="history-date"></time>
+            </div>
+
+            <div class="history-actions">
+              <button type="button" class="history-copy-btn">Copy</button>
+
+              <button type="button" class="history-delete-btn">Delete</button>
+            </div>
+          </article>
+        </template>
+
+        <section
+          class="prompt-quality-checker-section"
+          id="promptQualityCheckerSection"
+          aria-labelledby="promptQualityCheckerHeading"
+        >
+          <h2 id="promptQualityCheckerHeading">Prompt Quality Checker</h2>
+
+          <div class="prompt-quality-card" id="promptQualityChecker">
+            <div class="quality-overall">
+              <span class="quality-label">Overall Score</span>
+              <span class="quality-value" id="qualityOverallScore"> 0 </span>
+            </div>
+
+            <div class="quality-breakdown">
+              <div class="quality-item">
+                <span>Completeness</span>
+                <span id="qualityCompleteness">0</span>
+              </div>
+
+              <div class="quality-item">
+                <span>Clarity</span>
+                <span id="qualityClarity">0</span>
+              </div>
+
+              <div class="quality-item">
+                <span>Detail</span>
+                <span id="qualityDetail">0</span>
+              </div>
+
+              <div class="quality-item">
+                <span>Readability</span>
+                <span id="qualityReadability">0</span>
+              </div>
+
+              <div class="quality-item">
+                <span>Missing Information</span>
+                <span id="qualityMissingInformation">0</span>
+              </div>
+
+              <div class="quality-item">
+                <span>Prompt Effectiveness</span>
+                <span id="qualityPromptEffectiveness">0</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer" id="footer">
+        <div class="copyright-area" id="copyrightArea">
+          <span id="copyrightText">
+            © <span id="copyrightYear"></span> Your Name or Brand
+          </span>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

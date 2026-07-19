@@ -49,9 +49,22 @@ body {
   line-height: 1.6;
   color: var(--color-soft-white);
   background:
-    radial-gradient(circle at top left, rgba(18, 54, 163, 0.35), transparent 32rem),
-    radial-gradient(circle at top right, rgba(212, 175, 55, 0.18), transparent 28rem),
-    linear-gradient(135deg, var(--color-black), var(--color-deep-blue) 48%, var(--color-black));
+    radial-gradient(
+      circle at top left,
+      rgba(18, 54, 163, 0.35),
+      transparent 32rem
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(212, 175, 55, 0.18),
+      transparent 28rem
+    ),
+    linear-gradient(
+      135deg,
+      var(--color-black),
+      var(--color-deep-blue) 48%,
+      var(--color-black)
+    );
 }
 
 button,
@@ -167,7 +180,11 @@ p {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025)),
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.075),
+      rgba(255, 255, 255, 0.025)
+    ),
     var(--color-card);
   box-shadow: var(--shadow-soft);
   backdrop-filter: blur(16px);
@@ -346,7 +363,11 @@ textarea:focus-visible {
 
 .primary-action-btn {
   color: var(--color-black);
-  background: linear-gradient(135deg, var(--color-soft-gold), var(--color-gold));
+  background: linear-gradient(
+    135deg,
+    var(--color-soft-gold),
+    var(--color-gold)
+  );
 }
 
 .secondary-action-btn,
@@ -374,7 +395,11 @@ textarea:focus-visible {
 
 .lock-btn[aria-pressed="true"] {
   color: var(--color-black);
-  background: linear-gradient(135deg, var(--color-soft-gold), var(--color-gold));
+  background: linear-gradient(
+    135deg,
+    var(--color-soft-gold),
+    var(--color-gold)
+  );
 }
 
 .clear-category-btn {
@@ -397,7 +422,11 @@ textarea:focus-visible {
 .preset-btn[aria-pressed="true"],
 .preset-btn.is-active {
   color: var(--color-black);
-  background: linear-gradient(135deg, var(--color-soft-gold), var(--color-gold));
+  background: linear-gradient(
+    135deg,
+    var(--color-soft-gold),
+    var(--color-gold)
+  );
 }
 
 select,
@@ -476,7 +505,11 @@ textarea {
 .chip-btn.is-selected,
 .multi-chip-btn.is-selected {
   color: var(--color-black);
-  background: linear-gradient(135deg, var(--color-soft-gold), var(--color-gold));
+  background: linear-gradient(
+    135deg,
+    var(--color-soft-gold),
+    var(--color-gold)
+  );
 }
 
 .prompt-output-footer {
@@ -630,7 +663,11 @@ textarea {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025)),
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 255, 255, 0.025)
+    ),
     var(--color-card);
   box-shadow: var(--shadow-soft);
 }
@@ -854,273 +891,211 @@ textarea::-webkit-scrollbar-thumb {
 BRANDING
 ==================================================*/
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap");
 
-:root{
+:root {
+  --font-heading: "Playfair Display", serif;
 
---font-heading:'Playfair Display',serif;
-
---font-body:'Montserrat',sans-serif;
-
+  --font-body: "Montserrat", sans-serif;
 }
 
 /*==================================================
 Branding Area
 ==================================================*/
 
-.branding-container{
+.branding-container {
+  display: flex;
 
-display:flex;
+  flex-direction: column;
 
-flex-direction:column;
+  gap: 20px;
 
-gap:20px;
-
-margin-top:30px;
-
+  margin-top: 30px;
 }
 
 /*==================================================
 Banner
 ==================================================*/
 
-.generator-header-image{
+.generator-header-image {
+  display: block;
 
-display:block;
+  width: 100%;
 
-width:100%;
+  max-height: 420px;
 
-max-height:420px;
+  object-fit: contain;
 
-object-fit:contain;
+  border-radius: 18px;
 
-border-radius:18px;
+  border: 2px solid #d4af37;
 
-border:2px solid #D4AF37;
+  background: #050505;
 
-background:#050505;
-
-box-shadow:
-0 20px 50px rgba(0,0,0,.45),
-0 0 30px rgba(212,175,55,.25);
-
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.45),
+    0 0 30px rgba(212, 175, 55, 0.25);
 }
 
 /*==================================================
 Announcement Bar
 ==================================================*/
 
-.announcement-bar{
+.announcement-bar {
+  overflow: hidden;
 
-overflow:hidden;
+  border-radius: 999px;
 
-border-radius:999px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
 
-border:1px solid rgba(212,175,55,.35);
+  background: rgba(255, 255, 255, 0.05);
 
-background:rgba(255,255,255,.05);
+  backdrop-filter: blur(16px);
 
-backdrop-filter:blur(16px);
+  padding: 14px 0;
 
-padding:14px 0;
-
-box-shadow:0 0 25px rgba(212,175,55,.15);
-
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
 }
 
-.announcement-track{
+.announcement-track {
+  display: flex;
 
-display:flex;
+  width: max-content;
 
-width:max-content;
-
-animation:marquee 30s linear infinite;
-
+  animation: marquee 30s linear infinite;
 }
 
-.announcement-track span{
+.announcement-track span {
+  padding-right: 90px;
 
-padding-right:90px;
+  color: #f2d675;
 
-color:#F2D675;
+  font-size: 0.95rem;
 
-font-size:.95rem;
+  font-weight: 700;
 
-font-weight:700;
+  letter-spacing: 0.12em;
 
-letter-spacing:.12em;
+  text-transform: uppercase;
 
-text-transform:uppercase;
-
-white-space:nowrap;
-
+  white-space: nowrap;
 }
 
 /*==================================================
 Luxury Buttons
 ==================================================*/
 
-button{
+button {
+  position: relative;
 
-position:relative;
+  overflow: hidden;
 
-overflow:hidden;
+  border-radius: 999px;
 
-border-radius:999px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.03)
+  );
 
-background:
-linear-gradient(145deg,
-rgba(255,255,255,.15),
-rgba(255,255,255,.03));
+  border: 1px solid rgba(212, 175, 55, 0.35);
 
-border:1px solid rgba(212,175,55,.35);
-
-transition:.3s;
-
+  transition: 0.3s;
 }
 
-button:hover{
+button:hover {
+  transform: translateY(-4px);
 
-transform:translateY(-4px);
-
-box-shadow:
-
-0 12px 35px rgba(0,0,0,.4),
-
-0 0 25px rgba(212,175,55,.35);
-
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(212, 175, 55, 0.35);
 }
 
-button::before{
+button::before {
+  content: "";
 
-content:"";
+  position: absolute;
 
-position:absolute;
+  left: -130%;
 
-left:-130%;
+  top: 0;
 
-top:0;
+  width: 60%;
 
-width:60%;
+  height: 100%;
 
-height:100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.45),
+    transparent
+  );
 
-background:
-
-linear-gradient(
-
-120deg,
-
-transparent,
-
-rgba(255,255,255,.45),
-
-transparent);
-
-transform:skewX(-25deg);
-
+  transform: skewX(-25deg);
 }
 
-button:hover::before{
-
-animation:shine .8s;
-
+button:hover::before {
+  animation: shine 0.8s;
 }
 
 /*==================================================
 Scrollbar
 ==================================================*/
 
-::-webkit-scrollbar{
-
-width:15px;
-
+::-webkit-scrollbar {
+  width: 15px;
 }
 
-::-webkit-scrollbar-track{
-
-background:#111;
-
+::-webkit-scrollbar-track {
+  background: #111;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #fff4ae, #d4af37, #9b7418);
 
-background:linear-gradient(
+  border-radius: 999px;
 
-180deg,
-
-#FFF4AE,
-
-#D4AF37,
-
-#9B7418);
-
-border-radius:999px;
-
-border:3px solid #111;
-
+  border: 3px solid #111;
 }
 
-::-webkit-scrollbar-thumb:hover{
-
-background:linear-gradient(
-
-180deg,
-
-#FFF8CC,
-
-#F2D675,
-
-#D4AF37);
-
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #fff8cc, #f2d675, #d4af37);
 }
 
 /*==================================================
 Copyright
 ==================================================*/
 
-#copyrightText{
+#copyrightText {
+  font-family: Montserrat, sans-serif;
 
-font-family:Montserrat,sans-serif;
+  font-size: 0.95rem;
 
-font-size:.95rem;
+  font-weight: 600;
 
-font-weight:600;
+  color: #f2d675;
 
-color:#F2D675;
-
-letter-spacing:.04em;
-
+  letter-spacing: 0.04em;
 }
 
 /*==================================================
 Animations
 ==================================================*/
 
-@keyframes marquee{
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
 
-0%{
-
-transform:translateX(0);
-
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-100%{
-
-transform:translateX(-50%);
-
-}
-
-}
-
-@keyframes shine{
-
-100%{
-
-left:150%;
-
-}
-
+@keyframes shine {
+  100% {
+    left: 150%;
+  }
 }
 
 /* ==========================================================
@@ -1150,7 +1125,11 @@ left:150%;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025)),
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.075),
+      rgba(255, 255, 255, 0.025)
+    ),
     var(--color-card);
   box-shadow: var(--shadow-soft);
   backdrop-filter: blur(16px);
@@ -1172,4 +1151,19 @@ left:150%;
   .premium-outputs-grid {
     grid-template-columns: 1fr;
   }
+}
+.footer-shop-link {
+  margin: 0 0 0.75rem;
+  color: var(--color-soft-white);
+  font-size: 1rem;
+}
+
+.footer-shop-link a {
+  color: var(--color-soft-gold);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.footer-shop-link a:hover {
+  text-decoration: underline;
 }

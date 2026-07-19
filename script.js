@@ -9,7 +9,7 @@ const APP_NAME = "Faith-Based Luxury Affirmation Artwork Prompt Generator";
 const STORAGE_KEYS = Object.freeze({
   SAVED_PROMPTS: "faithLuxuryAffirmationGenerator.savedPrompts",
   ACTIVE_PRESET: "faithLuxuryAffirmationGenerator.activePreset",
-  LOCKS: "faithLuxuryAffirmationGenerator.locks"
+  LOCKS: "faithLuxuryAffirmationGenerator.locks",
 });
 
 const INPUT_TYPES = Object.freeze({
@@ -17,22 +17,13 @@ const INPUT_TYPES = Object.freeze({
   CHIP: "chip-button",
   MULTI_CHIP: "multi-select",
   TEXT: "text",
-  TEXTAREA: "textarea"
-});
-
-const QUALITY_METRICS = Object.freeze({
-  COMPLETENESS: "completeness",
-  CLARITY: "clarity",
-  DETAIL: "detail",
-  READABILITY: "readability",
-  MISSING_INFORMATION: "missingInformation",
-  PROMPT_EFFECTIVENESS: "promptEffectiveness"
+  TEXTAREA: "textarea",
 });
 
 const DEFAULT_VALUES = Object.freeze({
   SELECT: "None",
   TEXT: "",
-  TEXTAREA: ""
+  TEXTAREA: "",
 });
 
 /* ==========================================================
@@ -40,7 +31,6 @@ const DEFAULT_VALUES = Object.freeze({
 ========================================================== */
 
 const OPTION_DATA = Object.freeze({
-
   artworkStyle: [
     "None",
     "Cinematic",
@@ -53,55 +43,55 @@ const OPTION_DATA = Object.freeze({
     "Luxury Editorial",
     "Mixed Media",
     "3D Illustration",
-"Abstract Expressionism",
-"Airbrush Art",
-"Art Deco",
-"Baroque",
-"Black and White Fine Art",
-"Bohemian",
-"Classical Fine Art",
-"Classic Oil Painting",
-"Collage Art",
-"Colored Pencil Illustration",
-"Contemporary Fine Art",
-"Dreamlike",
-"Elegant Minimalism",
-"Expressionist",
-"Fantasy Illustration",
-"Fine Art Photography",
-"Flat Illustration",
-"Floating Ink Art",
-"Folk Art",
-"French Impressionism",
-"Futuristic Luxury",
-"Glam Editorial",
-"Glass Art",
-"Gothic Elegance",
-"Graphic Novel",
-"High-End Commercial",
-"Hyper Detailed",
-"Luxury Magazine Cover",
-"Luxury Portrait",
-"Matte Painting",
-"Minimal Luxury",
-"Mixed Technique",
-"Modern Fine Art",
-"Modern Glamour",
-"Modern Realism",
-"Monochromatic",
-"Museum Quality",
-"Pastel Illustration",
-"Photorealistic",
-"Pop Art",
-"Renaissance Inspired",
-"Soft Painterly",
-"Stylized Realism",
-"Surrealism",
-"Traditional Illustration",
-"Ultra Detailed",
-"Vintage Luxury",
-"Watercolor Illustration",
-"Woodcut Style"
+    "Abstract Expressionism",
+    "Airbrush Art",
+    "Art Deco",
+    "Baroque",
+    "Black and White Fine Art",
+    "Bohemian",
+    "Classical Fine Art",
+    "Classic Oil Painting",
+    "Collage Art",
+    "Colored Pencil Illustration",
+    "Contemporary Fine Art",
+    "Dreamlike",
+    "Elegant Minimalism",
+    "Expressionist",
+    "Fantasy Illustration",
+    "Fine Art Photography",
+    "Flat Illustration",
+    "Floating Ink Art",
+    "Folk Art",
+    "French Impressionism",
+    "Futuristic Luxury",
+    "Glam Editorial",
+    "Glass Art",
+    "Gothic Elegance",
+    "Graphic Novel",
+    "High-End Commercial",
+    "Hyper Detailed",
+    "Luxury Magazine Cover",
+    "Luxury Portrait",
+    "Matte Painting",
+    "Minimal Luxury",
+    "Mixed Technique",
+    "Modern Fine Art",
+    "Modern Glamour",
+    "Modern Realism",
+    "Monochromatic",
+    "Museum Quality",
+    "Pastel Illustration",
+    "Photorealistic",
+    "Pop Art",
+    "Renaissance Inspired",
+    "Soft Painterly",
+    "Stylized Realism",
+    "Surrealism",
+    "Traditional Illustration",
+    "Ultra Detailed",
+    "Vintage Luxury",
+    "Watercolor Illustration",
+    "Woodcut Style",
   ],
 
   faithTheme: [
@@ -125,55 +115,55 @@ const OPTION_DATA = Object.freeze({
     "Walking by Faith",
     "Worship",
     "Abiding in Christ",
-"Anointed",
-"Answered Prayer",
-"Armor of God",
-"Assurance",
-"Be Still",
-"Biblical Wisdom",
-"Bold Faith",
-"Breaking Chains",
-"Chosen",
-"Contentment",
-"Covenant",
-"Daily Devotion",
-"Divine Direction",
-"Divine Healing",
-"Divine Restoration",
-"Eternal Hope",
-"Faith Over Fear",
-"Favor and Increase",
-"Forgiveness",
-"Freedom in Christ",
-"Fruit of the Spirit",
-"God's Faithfulness",
-"God's Mercy",
-"God's Presence",
-"God's Refuge",
-"God's Truth",
-"Grace Upon Grace",
-"Holy Spirit",
-"Humility",
-"Identity in Christ",
-"Joy in the Lord",
-"Kingdom Living",
-"Light of the World",
-"Love Never Fails",
-"New Beginnings",
-"Obedience",
-"Overflow",
-"Patience",
-"Peace Beyond Understanding",
-"Perseverance",
-"Praise",
-"Redemption",
-"Renewed Mind",
-"Revival",
-"Salvation",
-"Spiritual Growth",
-"Steadfast Faith",
-"Trust in God's Plan",
-"Victory Through Christ",
+    "Anointed",
+    "Answered Prayer",
+    "Armor of God",
+    "Assurance",
+    "Be Still",
+    "Biblical Wisdom",
+    "Bold Faith",
+    "Breaking Chains",
+    "Chosen",
+    "Contentment",
+    "Covenant",
+    "Daily Devotion",
+    "Divine Direction",
+    "Divine Healing",
+    "Divine Restoration",
+    "Eternal Hope",
+    "Faith Over Fear",
+    "Favor and Increase",
+    "Forgiveness",
+    "Freedom in Christ",
+    "Fruit of the Spirit",
+    "God's Faithfulness",
+    "God's Mercy",
+    "God's Presence",
+    "God's Refuge",
+    "God's Truth",
+    "Grace Upon Grace",
+    "Holy Spirit",
+    "Humility",
+    "Identity in Christ",
+    "Joy in the Lord",
+    "Kingdom Living",
+    "Light of the World",
+    "Love Never Fails",
+    "New Beginnings",
+    "Obedience",
+    "Overflow",
+    "Patience",
+    "Peace Beyond Understanding",
+    "Perseverance",
+    "Praise",
+    "Redemption",
+    "Renewed Mind",
+    "Revival",
+    "Salvation",
+    "Spiritual Growth",
+    "Steadfast Faith",
+    "Trust in God's Plan",
+    "Victory Through Christ",
   ],
 
   empowermentTheme: [
@@ -192,55 +182,55 @@ const OPTION_DATA = Object.freeze({
     "Success",
     "Victory",
     "Authenticity",
-"Balance",
-"Becoming",
-"Boldness",
-"Breakthrough",
-"Calm",
-"Capability",
-"Celebration",
-"Change",
-"Compassion",
-"Determination",
-"Discipline",
-"Dream Big",
-"Empowerment",
-"Endurance",
-"Excellence",
-"Fearlessness",
-"Focus",
-"Forgiveness",
-"Freedom",
-"Fresh Start",
-"Generosity",
-"Grace",
-"Gratitude",
-"Happiness",
-"Harmony",
-"Healing Journey",
-"Hopeful Future",
-"Inner Beauty",
-"Inner Peace",
-"Inspiration",
-"Leadership",
-"Legacy",
-"Limitless Potential",
-"Love Yourself",
-"Mindset Shift",
-"Motivation",
-"New Chapter",
-"Optimism",
-"Personal Growth",
-"Positivity",
-"Purpose Driven",
-"Renewal",
-"Self Acceptance",
-"Self Belief",
-"Self Care",
-"Transformation",
-"Triumph",
-"Unshakable Confidence",
-"Wholeness",
+    "Balance",
+    "Becoming",
+    "Boldness",
+    "Breakthrough",
+    "Calm",
+    "Capability",
+    "Celebration",
+    "Change",
+    "Compassion",
+    "Determination",
+    "Discipline",
+    "Dream Big",
+    "Empowerment",
+    "Endurance",
+    "Excellence",
+    "Fearlessness",
+    "Focus",
+    "Forgiveness",
+    "Freedom",
+    "Fresh Start",
+    "Generosity",
+    "Grace",
+    "Gratitude",
+    "Happiness",
+    "Harmony",
+    "Healing Journey",
+    "Hopeful Future",
+    "Inner Beauty",
+    "Inner Peace",
+    "Inspiration",
+    "Leadership",
+    "Legacy",
+    "Limitless Potential",
+    "Love Yourself",
+    "Mindset Shift",
+    "Motivation",
+    "New Chapter",
+    "Optimism",
+    "Personal Growth",
+    "Positivity",
+    "Purpose Driven",
+    "Renewal",
+    "Self Acceptance",
+    "Self Belief",
+    "Self Care",
+    "Transformation",
+    "Triumph",
+    "Unshakable Confidence",
+    "Wholeness",
   ],
 
   subject: [
@@ -254,126 +244,125 @@ const OPTION_DATA = Object.freeze({
     "Woman",
     "Young Adult",
     "Author",
-"Bride",
-"Business Professional",
-"Caregiver",
-"Chef",
-"College Student",
-"Community Leader",
-"Content Creator",
-"Dancer",
-"Daughter",
-"Entrepreneur",
-"Father",
-"Firefighter",
-"Fitness Coach",
-"Graduate",
-"Grandfather",
-"Grandmother",
-"Groom",
-"Healer",
-"Healthcare Professional",
-"High School Student",
-"Influencer",
-"Judge",
-"King",
-"Little Girl",
-"Little Boy",
-"Mentor",
-"Military Veteran",
-"Minister",
-"Missionary",
-"Model",
-"Mother",
-"Musician",
-"Nurse",
-"Pastor",
-"Photographer",
-"Police Officer",
-"Prayer Warrior",
-"Pregnant Mother",
-"Queen",
-"Retiree",
-"Scholar",
-"Singer",
-"Sister",
-"Small Business Owner",
-"Teacher",
-"Traveler",
-"Volunteer",
-"Wedding Couple",
-"Youth Leader",
+    "Bride",
+    "Business Professional",
+    "Caregiver",
+    "Chef",
+    "College Student",
+    "Community Leader",
+    "Content Creator",
+    "Dancer",
+    "Daughter",
+    "Entrepreneur",
+    "Father",
+    "Firefighter",
+    "Fitness Coach",
+    "Graduate",
+    "Grandfather",
+    "Grandmother",
+    "Groom",
+    "Healer",
+    "Healthcare Professional",
+    "High School Student",
+    "Influencer",
+    "Judge",
+    "King",
+    "Little Girl",
+    "Little Boy",
+    "Mentor",
+    "Military Veteran",
+    "Minister",
+    "Missionary",
+    "Model",
+    "Mother",
+    "Musician",
+    "Nurse",
+    "Pastor",
+    "Photographer",
+    "Police Officer",
+    "Prayer Warrior",
+    "Pregnant Mother",
+    "Queen",
+    "Retiree",
+    "Scholar",
+    "Singer",
+    "Sister",
+    "Small Business Owner",
+    "Teacher",
+    "Traveler",
+    "Volunteer",
+    "Wedding Couple",
+    "Youth Leader",
   ],
 
-
   bodyType: [
-  "None",
-  "Athletic",
-  "Average",
-  "Broad Shoulders",
-  "Curvy",
-  "Fit",
-  "Full Figure",
-  "Heavyset",
-  "Lean",
-  "Medium Build",
-  "Muscular",
-  "Pear Shaped",
-  "Petite",
-  "Plus Size",
-  "Pregnant",
-  "Slender",
-  "Slim",
-  "Stocky",
-  "Tall",
-  "Thick",
-  "Voluptuous",
-  "Wide Frame"
-],
+    "None",
+    "Athletic",
+    "Average",
+    "Broad Shoulders",
+    "Curvy",
+    "Fit",
+    "Full Figure",
+    "Heavyset",
+    "Lean",
+    "Medium Build",
+    "Muscular",
+    "Pear Shaped",
+    "Petite",
+    "Plus Size",
+    "Pregnant",
+    "Slender",
+    "Slim",
+    "Stocky",
+    "Tall",
+    "Thick",
+    "Voluptuous",
+    "Wide Frame",
+  ],
 
-ethnicity: [
-  "None",
-  "African",
-  "African American",
-  "Arab",
-  "Asian",
-  "Black",
-  "Caribbean",
-  "Caucasian",
-  "East Asian",
-  "Ethiopian",
-  "Filipino",
-  "Hawaiian",
-  "Hispanic",
-  "Indian",
-  "Indigenous",
-  "Japanese",
-  "Korean",
-  "Latina",
-  "Latino",
-  "Maori",
-  "Mediterranean",
-  "Middle Eastern",
-  "Mixed Ethnicity",
-  "Native American",
-  "Pacific Islander",
-  "South Asian",
-  "Southeast Asian",
-  "White"
-],
+  ethnicity: [
+    "None",
+    "African",
+    "African American",
+    "Arab",
+    "Asian",
+    "Black",
+    "Caribbean",
+    "Caucasian",
+    "East Asian",
+    "Ethiopian",
+    "Filipino",
+    "Hawaiian",
+    "Hispanic",
+    "Indian",
+    "Indigenous",
+    "Japanese",
+    "Korean",
+    "Latina",
+    "Latino",
+    "Maori",
+    "Mediterranean",
+    "Middle Eastern",
+    "Mixed Ethnicity",
+    "Native American",
+    "Pacific Islander",
+    "South Asian",
+    "Southeast Asian",
+    "White",
+  ],
 
-ageGroup: [
-  "None",
-  "Baby",
-  "Centenarian",
-  "Child",
-  "Elderly",
-  "Middle Aged",
-  "Preteen",
-  "Senior Adult",
-  "Teenager",
-  "Young Adult"
-],
+  ageGroup: [
+    "None",
+    "Baby",
+    "Centenarian",
+    "Child",
+    "Elderly",
+    "Middle Aged",
+    "Preteen",
+    "Senior Adult",
+    "Teenager",
+    "Young Adult",
+  ],
 
   environment: [
     "None",
@@ -390,33 +379,62 @@ ageGroup: [
     "Mountain",
     "Studio",
     "Sunrise",
-    "Sunset"
+    "Sunset",
   ],
 
   colorPalette: [
     "None",
+    "Black & Gold",
+    "Black, Gold & White",
+    "Blush Pink & Gold",
+    "Burgundy & Gold",
+    "Champagne & Ivory",
+    "Chocolate Brown & Gold",
+    "Cream & Gold",
     "Emerald & Gold",
     "Gold & Black",
     "Gold & White",
+    "Ivory & Gold",
+    "Lavender & Gold",
     "Monochrome",
+    "Navy & Gold",
     "Neutral Luxury",
     "Pink & Gold",
+    "Plum & Gold",
     "Purple & Gold",
+    "Red & Gold",
+    "Rose Gold & Cream",
     "Royal Blue & Gold",
-    "Soft Pastels"
+    "Sage Green & Gold",
+    "Silver & White",
+    "Soft Pastels",
+    "Teal & Gold",
+    "Terracotta & Cream",
+    "White, Gold & Beige",
   ],
 
   typographyStyle: [
     "None",
     "Bold Modern",
+    "Classic Serif",
+    "Clean Sans Serif",
+    "Editorial Serif",
     "Elegant Script",
     "Embossed",
     "Gold Foil",
     "Hand Lettered",
+    "High Fashion Serif",
     "Luxury Serif",
     "Minimal Sans Serif",
     "Mixed Typography",
-    "Neon Style"
+    "Modern Calligraphy",
+    "Modern Serif",
+    "Neon Style",
+    "Refined Script",
+    "Signature Script",
+    "Soft Feminine Script",
+    "Sophisticated Serif",
+    "Vintage Serif",
   ],
 
   lighting: [
@@ -429,7 +447,7 @@ ageGroup: [
     "High Contrast",
     "Soft Natural",
     "Studio Lighting",
-    "Volumetric"
+    "Volumetric",
   ],
 
   composition: [
@@ -442,7 +460,7 @@ ageGroup: [
     "Poster Layout",
     "Symmetrical",
     "Waist Up",
-    "Wide Scene"
+    "Wide Scene",
   ],
 
   visualDetails: [
@@ -457,9 +475,8 @@ ageGroup: [
     "Light Rays",
     "Soft Glow",
     "Sparkles",
-    "Water Reflections"
-  ]
-
+    "Water Reflections",
+  ],
 });
 
 /* ==========================================================
@@ -474,7 +491,7 @@ const PRESET_DATA = {
     subject: "Woman",
     bodyType: "Plus Size",
     ethnicity: "African American",
-    ageGroup: "Adult",
+    ageGroup: "Middle Aged",
     environment: "Luxury Interior",
     colorPalette: "Royal Blue & Gold",
     typographyStyle: "Luxury Serif",
@@ -482,7 +499,7 @@ const PRESET_DATA = {
     composition: "Centered Portrait",
     visualDetails: ["Gold Accents", "Soft Glow", "Elegant Textures"],
     affirmationText: "I walk boldly in faith, confidence, and purpose.",
-    additionalInstructions: ""
+    additionalInstructions: "",
   },
 
   "Peace Beyond Understanding": {
@@ -492,7 +509,7 @@ const PRESET_DATA = {
     subject: "Individual Portrait",
     bodyType: "Average",
     ethnicity: "Mixed Ethnicity",
-    ageGroup: "Adult",
+    ageGroup: "Middle Aged",
     environment: "Garden",
     colorPalette: "Soft Pastels",
     typographyStyle: "Elegant Script",
@@ -500,7 +517,7 @@ const PRESET_DATA = {
     composition: "Waist Up",
     visualDetails: ["Flowers", "Soft Glow", "Light Rays"],
     affirmationText: "God’s peace covers me, steadies me, and leads me.",
-    additionalInstructions: ""
+    additionalInstructions: "",
   },
 
   "Chosen And Covered": {
@@ -510,7 +527,7 @@ const PRESET_DATA = {
     subject: "Woman",
     bodyType: "Curvy",
     ethnicity: "Black",
-    ageGroup: "40s",
+    ageGroup: "Middle Aged",
     environment: "Studio",
     colorPalette: "Gold & Black",
     typographyStyle: "Gold Foil",
@@ -518,7 +535,7 @@ const PRESET_DATA = {
     composition: "Magazine Cover",
     visualDetails: ["Gold Accents", "Bokeh", "Elegant Textures"],
     affirmationText: "I am chosen, covered, and called for more.",
-    additionalInstructions: ""
+    additionalInstructions: "",
   },
 
   "Grace In Bloom": {
@@ -529,14 +546,14 @@ const PRESET_DATA = {
     bodyType: "Petite",
     ethnicity: "Latina",
     ageGroup: "Young Adult",
-    environment: "Flower Field",
+    environment: "Floral Setting",
     colorPalette: "Pink & Gold",
     typographyStyle: "Hand Lettered",
     lighting: "Glowing",
     composition: "Full Body",
     visualDetails: ["Flowers", "Butterflies", "Soft Glow"],
     affirmationText: "Grace is growing in every part of my life.",
-    additionalInstructions: ""
+    additionalInstructions: "",
   },
 
   "Victory Through Christ": {
@@ -546,7 +563,7 @@ const PRESET_DATA = {
     subject: "Man",
     bodyType: "Athletic",
     ethnicity: "African",
-    ageGroup: "Adult",
+    ageGroup: "Middle Aged",
     environment: "Mountain",
     colorPalette: "Gold & White",
     typographyStyle: "Bold Modern",
@@ -554,7 +571,7 @@ const PRESET_DATA = {
     composition: "Wide Scene",
     visualDetails: ["Light Rays", "Clouds", "Soft Glow"],
     affirmationText: "Through Christ, I rise with strength and victory.",
-    additionalInstructions: ""
+    additionalInstructions: "",
   },
 
   "New Chapter Glow": {
@@ -563,26 +580,26 @@ const PRESET_DATA = {
     empowermentTheme: "Fresh Start",
     subject: "Content Creator",
     bodyType: "Voluptuous",
-    ethnicity: "Afro-Latina",
-    ageGroup: "30s",
-    environment: "City Rooftop",
+    ethnicity: "Mixed Ethnicity",
+    ageGroup: "Young Adult",
+    environment: "City",
     colorPalette: "Purple & Gold",
     typographyStyle: "Mixed Typography",
     lighting: "Cinematic",
     composition: "Poster Layout",
     visualDetails: ["Sparkles", "Gold Accents", "Bokeh"],
     affirmationText: "This is my new chapter, and I am glowing with purpose.",
-    additionalInstructions: ""
+    additionalInstructions: "",
   },
 
   "God’s Timing Is Perfect": {
     artworkStyle: "Elegant",
     faithTheme: "God's Timing",
-    empowermentTheme: "Patience",
+    empowermentTheme: "Calm",
     subject: "Individual Portrait",
     bodyType: "Medium Build",
     ethnicity: "Asian",
-    ageGroup: "Adult",
+    ageGroup: "Middle Aged",
     environment: "Sunset",
     colorPalette: "Neutral Luxury",
     typographyStyle: "Luxury Serif",
@@ -590,7 +607,7 @@ const PRESET_DATA = {
     composition: "Close Up",
     visualDetails: ["Soft Glow", "Water Reflections", "Light Rays"],
     affirmationText: "God’s timing is perfect, and I trust the process.",
-    additionalInstructions: ""
+    additionalInstructions: "",
   },
 
   "Prayer Warrior Strength": {
@@ -598,17 +615,17 @@ const PRESET_DATA = {
     faithTheme: "Prayer",
     empowermentTheme: "Strength",
     subject: "Prayer Warrior",
-    bodyType: "Strong Build",
+    bodyType: "Muscular",
     ethnicity: "African American",
-    ageGroup: "50s",
-    environment: "Candlelit Chapel",
+    ageGroup: "Middle Aged",
+    environment: "Church",
     colorPalette: "Gold & Black",
     typographyStyle: "Embossed",
     lighting: "Dramatic",
     composition: "Centered Portrait",
     visualDetails: ["Light Rays", "Soft Glow", "Gold Accents"],
     affirmationText: "My strength is renewed through prayer and faith.",
-    additionalInstructions: ""
+    additionalInstructions: "",
   },
 
   "Healing Journey": {
@@ -618,7 +635,7 @@ const PRESET_DATA = {
     subject: "Woman",
     bodyType: "Full Figure",
     ethnicity: "Caribbean",
-    ageGroup: "Adult",
+    ageGroup: "Middle Aged",
     environment: "Beach",
     colorPalette: "Soft Pastels",
     typographyStyle: "Minimal Sans Serif",
@@ -626,7 +643,7 @@ const PRESET_DATA = {
     composition: "Wide Scene",
     visualDetails: ["Water Reflections", "Clouds", "Soft Glow"],
     affirmationText: "I am healing, growing, and becoming whole.",
-    additionalInstructions: ""
+    additionalInstructions: "",
   },
 
   "Purpose Driven Life": {
@@ -636,15 +653,15 @@ const PRESET_DATA = {
     subject: "Entrepreneur",
     bodyType: "Tall",
     ethnicity: "Middle Eastern",
-    ageGroup: "Young Professional",
-    environment: "Luxury Penthouse",
+    ageGroup: "Young Adult",
+    environment: "Luxury Interior",
     colorPalette: "Emerald & Gold",
     typographyStyle: "Bold Modern",
     lighting: "High Contrast",
     composition: "Magazine Cover",
     visualDetails: ["Elegant Textures", "Gold Accents", "Decorative Frame"],
     affirmationText: "I am walking in purpose, power, and divine direction.",
-    additionalInstructions: ""
+    additionalInstructions: "",
   },
 
   "Faith Over Fear": {
@@ -652,9 +669,9 @@ const PRESET_DATA = {
     faithTheme: "Faith Over Fear",
     empowermentTheme: "Courage",
     subject: "Teen",
-    bodyType: "Youthful Build",
+    bodyType: "Average",
     ethnicity: "Hispanic",
-    ageGroup: "Teen",
+    ageGroup: "Teenager",
     environment: "Abstract Background",
     colorPalette: "Royal Blue & Gold",
     typographyStyle: "Neon Style",
@@ -662,7 +679,7 @@ const PRESET_DATA = {
     composition: "Close Up",
     visualDetails: ["Sparkles", "Soft Glow", "Bokeh"],
     affirmationText: "Faith is louder than fear.",
-    additionalInstructions: ""
+    additionalInstructions: "",
   },
 
   "Abundance And Overflow": {
@@ -670,17 +687,17 @@ const PRESET_DATA = {
     faithTheme: "Overflow",
     empowermentTheme: "Abundance",
     subject: "Business Professional",
-    bodyType: "Curvy Athletic",
-    ethnicity: "Nigerian",
-    ageGroup: "40s",
-    environment: "Grand Ballroom",
+    bodyType: "Athletic",
+    ethnicity: "African",
+    ageGroup: "Middle Aged",
+    environment: "Luxury Interior",
     colorPalette: "Gold & White",
     typographyStyle: "Gold Foil",
     lighting: "Studio Lighting",
     composition: "Full Body",
     visualDetails: ["Gold Accents", "Decorative Frame", "Elegant Textures"],
     affirmationText: "I am open to overflow, favor, and abundance.",
-    additionalInstructions: ""
+    additionalInstructions: "",
   },
 
   "Still Covered": {
@@ -688,7 +705,7 @@ const PRESET_DATA = {
     faithTheme: "God's Protection",
     empowermentTheme: "Calm",
     subject: "Grandmother",
-    bodyType: "Soft Curvy",
+    bodyType: "Curvy",
     ethnicity: "Black",
     ageGroup: "Senior Adult",
     environment: "Heavenly Light",
@@ -698,7 +715,7 @@ const PRESET_DATA = {
     composition: "Waist Up",
     visualDetails: ["Light Rays", "Clouds", "Soft Glow"],
     affirmationText: "I am still covered, still blessed, and still becoming.",
-    additionalInstructions: ""
+    additionalInstructions: "",
   },
 
   "Joy Comes Morning": {
@@ -716,17 +733,17 @@ const PRESET_DATA = {
     composition: "Poster Layout",
     visualDetails: ["Flowers", "Butterflies", "Light Rays"],
     affirmationText: "Joy comes in the morning.",
-    additionalInstructions: ""
+    additionalInstructions: "",
   },
 
   "Unshakable Woman": {
-    artworkStyle: "Bold Editorial",
+    artworkStyle: "Luxury Editorial",
     faithTheme: "Steadfast Faith",
     empowermentTheme: "Unshakable Confidence",
     subject: "Woman",
     bodyType: "Thick",
     ethnicity: "African American",
-    ageGroup: "Adult",
+    ageGroup: "Middle Aged",
     environment: "City",
     colorPalette: "Monochrome",
     typographyStyle: "Bold Modern",
@@ -734,8 +751,8 @@ const PRESET_DATA = {
     composition: "Dynamic Composition",
     visualDetails: ["Bokeh", "Gold Accents", "Elegant Textures"],
     affirmationText: "I am unshakable because my faith is rooted in God.",
-    additionalInstructions: ""
-  }
+    additionalInstructions: "",
+  },
 };
 
 /* ==========================================================
@@ -743,14 +760,13 @@ const PRESET_DATA = {
 ========================================================== */
 
 const CATEGORY_CONFIG = Object.freeze([
-
   {
     id: "artworkStyle",
     type: INPUT_TYPES.DROPDOWN,
     randomize: true,
     preset: true,
     lock: true,
-    clear: true
+    clear: true,
   },
 
   {
@@ -760,7 +776,7 @@ const CATEGORY_CONFIG = Object.freeze([
     randomize: true,
     preset: true,
     lock: true,
-    clear: true
+    clear: true,
   },
 
   {
@@ -770,7 +786,7 @@ const CATEGORY_CONFIG = Object.freeze([
     randomize: true,
     preset: true,
     lock: true,
-    clear: true
+    clear: true,
   },
 
   {
@@ -780,39 +796,38 @@ const CATEGORY_CONFIG = Object.freeze([
     randomize: true,
     preset: true,
     lock: true,
-    clear: true
+    clear: true,
   },
 
   {
-  id: "bodyType",
-  customId: "bodyTypeCustom",
-  type: INPUT_TYPES.DROPDOWN,
-  randomize: true,
-  preset: true,
-  lock: true,
-  clear: true
-},
+    id: "bodyType",
+    customId: "bodyTypeCustom",
+    type: INPUT_TYPES.DROPDOWN,
+    randomize: true,
+    preset: true,
+    lock: true,
+    clear: true,
+  },
 
-{
-  id: "ethnicity",
-  customId: "ethnicityCustom",
-  type: INPUT_TYPES.DROPDOWN,
-  randomize: true,
-  preset: true,
-  lock: true,
-  clear: true
-},
+  {
+    id: "ethnicity",
+    customId: "ethnicityCustom",
+    type: INPUT_TYPES.DROPDOWN,
+    randomize: true,
+    preset: true,
+    lock: true,
+    clear: true,
+  },
 
-{
-  id: "ageGroup",
-  customId: "ageGroupCustom",
-  type: INPUT_TYPES.DROPDOWN,
-  randomize: true,
-  preset: true,
-  lock: true,
-  clear: true
-},
-
+  {
+    id: "ageGroup",
+    customId: "ageGroupCustom",
+    type: INPUT_TYPES.DROPDOWN,
+    randomize: true,
+    preset: true,
+    lock: true,
+    clear: true,
+  },
 
   {
     id: "environment",
@@ -821,7 +836,7 @@ const CATEGORY_CONFIG = Object.freeze([
     randomize: true,
     preset: true,
     lock: true,
-    clear: true
+    clear: true,
   },
 
   {
@@ -831,7 +846,7 @@ const CATEGORY_CONFIG = Object.freeze([
     randomize: true,
     preset: true,
     lock: true,
-    clear: true
+    clear: true,
   },
 
   {
@@ -841,7 +856,7 @@ const CATEGORY_CONFIG = Object.freeze([
     randomize: true,
     preset: true,
     lock: true,
-    clear: true
+    clear: true,
   },
 
   {
@@ -851,7 +866,7 @@ const CATEGORY_CONFIG = Object.freeze([
     randomize: true,
     preset: true,
     lock: true,
-    clear: true
+    clear: true,
   },
 
   {
@@ -861,7 +876,7 @@ const CATEGORY_CONFIG = Object.freeze([
     randomize: true,
     preset: true,
     lock: true,
-    clear: true
+    clear: true,
   },
 
   {
@@ -871,7 +886,7 @@ const CATEGORY_CONFIG = Object.freeze([
     randomize: true,
     preset: true,
     lock: true,
-    clear: true
+    clear: true,
   },
 
   {
@@ -880,7 +895,7 @@ const CATEGORY_CONFIG = Object.freeze([
     randomize: false,
     preset: true,
     lock: true,
-    clear: true
+    clear: true,
   },
 
   {
@@ -889,9 +904,8 @@ const CATEGORY_CONFIG = Object.freeze([
     randomize: false,
     preset: false,
     lock: true,
-    clear: true
-  }
-
+    clear: true,
+  },
 ]);
 
 /* ==========================================================
@@ -900,8 +914,9 @@ const CATEGORY_CONFIG = Object.freeze([
 
 const $ = (selector, scope = document) => scope.querySelector(selector);
 
-const $$ = (selector, scope = document) =>
-  [...scope.querySelectorAll(selector)];
+const $$ = (selector, scope = document) => [
+  ...scope.querySelectorAll(selector),
+];
 
 const byId = (id) => document.getElementById(id);
 
@@ -910,24 +925,68 @@ const byId = (id) => document.getElementById(id);
 ========================================================== */
 
 const DOM = Object.freeze({
-
   presetsContainer: byId("presetsContainer"),
 
-
   premiumOutputs: {
-  suno: byId("sunoPromptOutput"),
-  video: byId("videoScriptOutput"),
-  marketing: byId("marketingPromptOutput"),
-  customGpt: byId("customGptPromptOutput")
-},
+    suno: byId("sunoPromptOutput"),
+    video: byId("videoScriptOutput"),
+    marketing: byId("marketingPromptOutput"),
+    customGpt: byId("customGptPromptOutput"),
+  },
 
-premiumCopyButtons: {
-  suno: byId("copySunoPromptBtn"),
-  video: byId("copyVideoScriptBtn"),
-  marketing: byId("copyMarketingPromptBtn"),
-  customGpt: byId("copyCustomGptPromptBtn")
-},
+  sunoBuilder: {
+    musicFormat: byId("musicFormat"),
+    musicGenre: byId("musicGenre"),
+    musicReference: byId("musicReference"),
+    vocalType: byId("vocalType"),
+    songLength: byId("songLength"),
+    lyricsType: byId("lyricsType"),
+    musicMood: byId("musicMood"),
+    musicEnergy: byId("musicEnergy"),
+    musicTempo: byId("musicTempo"),
+    musicInstruments: byId("musicInstruments"),
+    songStructure: byId("songStructure"),
+    vocalDelivery: byId("vocalDelivery"),
+    customLyrics: byId("customLyrics"),
+    musicAvoid: byId("musicAvoid"),
+    additionalMusicInstructions: byId("additionalMusicInstructions"),
+  },
+
+  marketingBuilder: {
+    marketingGoal: byId("marketingGoal"),
+    marketingOfferName: byId("marketingOfferName"),
+    marketingAudience: byId("marketingAudience"),
+    marketingPlatform: byId("marketingPlatform"),
+    marketingTone: byId("marketingTone"),
+    marketingCallToAction: byId("marketingCallToAction"),
+    marketingLinkDestination: byId("marketingLinkDestination"),
+    marketingContentType: byId("marketingContentType"),
+    marketingKeywords: byId("marketingKeywords"),
+    marketingAvoid: byId("marketingAvoid"),
+    additionalMarketingInstructions: byId("additionalMarketingInstructions"),
+  },
+
+  generateMarketingButton: byId("generateMarketingPromptBtn"),
+
+  customGptBuilder: {
+    gptName: byId("gptName"),
+    gptAudience: byId("gptAudience"),
+    gptTone: byId("gptTone"),
+    gptQuestionStyle: byId("gptQuestionStyle"),
+    gptResultCount: byId("gptResultCount"),
+    additionalGptInstructions: byId("additionalGptInstructions"),
+  },
+
+  generateCustomGptButton: byId("generateCustomGptPromptBtn"),
+
+  premiumCopyButtons: {
+    suno: byId("copySunoPromptBtn"),
+    video: byId("copyVideoScriptBtn"),
+    marketing: byId("copyMarketingPromptBtn"),
+    customGpt: byId("copyCustomGptPromptBtn"),
+  },
   generateButton: byId("generatePromptBtn"),
+  generateSunoButton: byId("generateSunoPromptBtn"),
   randomizeButton: byId("randomizeBtn"),
   copyButton: byId("copyPromptBtn"),
   saveButton: byId("savePromptBtn"),
@@ -937,31 +996,17 @@ premiumCopyButtons: {
 
   copyFinalPromptButton: byId("copyFinalPromptBtn"),
 
-  characterCounter: byId("characterCounter"),
-  promptQualityScore: byId("promptQualityScore"),
-
   variationsContainer: byId("promptVariationsContainer"),
 
   variationOutputs: [
     byId("variationOutput1"),
     byId("variationOutput2"),
     byId("variationOutput3"),
-    byId("variationOutput4")
+    byId("variationOutput4"),
   ],
 
   historyContainer: byId("promptHistoryContainer"),
   historyTemplate: byId("promptHistoryTemplate"),
-
-  quality: {
-    overall: byId("qualityOverallScore"),
-    completeness: byId("qualityCompleteness"),
-    clarity: byId("qualityClarity"),
-    detail: byId("qualityDetail"),
-    readability: byId("qualityReadability"),
-    missingInformation: byId("qualityMissingInformation"),
-    promptEffectiveness: byId("qualityPromptEffectiveness")
-  }
-
 });
 
 /* ==========================================================
@@ -969,7 +1014,6 @@ premiumCopyButtons: {
 ========================================================== */
 
 const appState = {
-
   activePreset: null,
 
   savedPrompts: [],
@@ -979,17 +1023,6 @@ const appState = {
   promptVariations: [],
 
   locks: {},
-
-  quality: {
-    score: 0,
-    completeness: 0,
-    clarity: 0,
-    detail: 0,
-    readability: 0,
-    missingInformation: 0,
-    promptEffectiveness: 0
-  }
-
 };
 
 /* ==========================================================
@@ -997,30 +1030,26 @@ const appState = {
 ========================================================== */
 
 const categoryState = CATEGORY_CONFIG.reduce((state, category) => {
-
   state[category.id] = {
     value:
-      category.type === INPUT_TYPES.MULTI_CHIP
-        ? []
-        : DEFAULT_VALUES.SELECT,
-    locked: false
+      category.type === INPUT_TYPES.MULTI_CHIP ? [] : DEFAULT_VALUES.SELECT,
+    locked: false,
   };
 
   if (category.customId) {
     state[category.customId] = {
-      value: DEFAULT_VALUES.TEXT
+      value: DEFAULT_VALUES.TEXT,
     };
   }
 
   if (category.type === INPUT_TYPES.TEXTAREA) {
     state[category.id] = {
       value: DEFAULT_VALUES.TEXTAREA,
-      locked: false
+      locked: false,
     };
   }
 
   return state;
-
 }, {});
 
 /* ==========================================================
@@ -1037,7 +1066,10 @@ function cleanText(value) {
 
 function isEmptyValue(value) {
   if (Array.isArray(value)) {
-    return value.length === 0 || value.every((item) => item === DEFAULT_VALUES.SELECT);
+    return (
+      value.length === 0 ||
+      value.every((item) => item === DEFAULT_VALUES.SELECT)
+    );
   }
 
   return cleanText(value) === "" || value === DEFAULT_VALUES.SELECT;
@@ -1064,7 +1096,9 @@ function getLockButton(categoryId) {
 }
 
 function getClearButton(categoryId) {
-  return byId(`clear${categoryId.charAt(0).toUpperCase()}${categoryId.slice(1)}`);
+  return byId(
+    `clear${categoryId.charAt(0).toUpperCase()}${categoryId.slice(1)}`,
+  );
 }
 
 function getCategoryCard(categoryId) {
@@ -1089,7 +1123,7 @@ function randomFromArray(values) {
 
 function getRandomOptions(categoryId) {
   return (OPTION_DATA[categoryId] || []).filter(
-    (option) => option !== DEFAULT_VALUES.SELECT
+    (option) => option !== DEFAULT_VALUES.SELECT,
   );
 }
 
@@ -1178,7 +1212,9 @@ function setDropdownValue(categoryId, value) {
   }
 
   const approvedOptions = OPTION_DATA[categoryId] || [];
-  select.value = approvedOptions.includes(value) ? value : DEFAULT_VALUES.SELECT;
+  select.value = approvedOptions.includes(value)
+    ? value
+    : DEFAULT_VALUES.SELECT;
   categoryState[categoryId].value = select.value;
 }
 
@@ -1193,7 +1229,10 @@ function createChipButton(categoryId, option, multiSelect = false) {
   button.className = multiSelect ? "multi-chip-btn" : "chip-btn";
   button.textContent = option;
   button.dataset.value = option;
-  button.setAttribute("aria-pressed", option === DEFAULT_VALUES.SELECT ? "true" : "false");
+  button.setAttribute(
+    "aria-pressed",
+    option === DEFAULT_VALUES.SELECT ? "true" : "false",
+  );
 
   return button;
 }
@@ -1203,7 +1242,10 @@ function populateChipGroup(category) {
   const options = OPTION_DATA[category.id] || [];
   const isMultiSelect = category.type === INPUT_TYPES.MULTI_CHIP;
 
-  if (!group || ![INPUT_TYPES.CHIP, INPUT_TYPES.MULTI_CHIP].includes(category.type)) {
+  if (
+    !group ||
+    ![INPUT_TYPES.CHIP, INPUT_TYPES.MULTI_CHIP].includes(category.type)
+  ) {
     return;
   }
 
@@ -1269,7 +1311,8 @@ function setSelectedMultiValues(categoryId, values) {
   $$(".multi-chip-btn", group).forEach((button) => {
     const value = button.dataset.value;
     const isNone = value === DEFAULT_VALUES.SELECT;
-    const isSelected = safeValues.length === 0 ? isNone : safeValues.includes(value);
+    const isSelected =
+      safeValues.length === 0 ? isNone : safeValues.includes(value);
 
     button.setAttribute("aria-pressed", String(isSelected));
     button.classList.toggle("is-selected", isSelected);
@@ -1406,7 +1449,7 @@ function validateSelections(inputData) {
 
 function normalizePhraseList(values) {
   return uniqueValues(
-    values.map((value) => cleanText(value)).filter((value) => value)
+    values.map((value) => cleanText(value)).filter((value) => value),
   );
 }
 
@@ -1455,7 +1498,7 @@ function resolveCategoryValue(category, inputData) {
     : [selectedValue];
 
   const cleanedSelections = normalizePhraseList(
-    selectedValues.filter((value) => value !== DEFAULT_VALUES.SELECT)
+    selectedValues.filter((value) => value !== DEFAULT_VALUES.SELECT),
   );
 
   const cleanedCustom = cleanText(customValue);
@@ -1471,21 +1514,21 @@ function createCategorySegment(category, values) {
   const joinedValues = values.join(", ");
 
   const segmentMap = {
-    artworkStyle: `Artwork style: ${joinedValues}.`,
-    faithTheme: `Faith theme: ${joinedValues}.`,
-    empowermentTheme: `Empowerment theme: ${joinedValues}.`,
-    subject: `Subject: ${joinedValues}.`,
-bodyType: `Body type: ${joinedValues}.`,
-ethnicity: `Ethnicity: ${joinedValues}.`,
-ageGroup: `Age group: ${joinedValues}.`,
-environment: `Environment: ${joinedValues}.`,
-    colorPalette: `Color palette: ${joinedValues}.`,
-    typographyStyle: `Typography style: ${joinedValues}.`,
-    lighting: `Lighting: ${joinedValues}.`,
-    composition: `Composition: ${joinedValues}.`,
-    visualDetails: `Visual details: ${joinedValues}.`,
-    affirmationText: `Affirmation text to include: "${joinedValues}".`,
-    additionalInstructions: `Additional prompt instructions: ${joinedValues}.`
+    artworkStyle: `Create the artwork in a ${joinedValues} style.`,
+    faithTheme: `Center the artwork on the faith theme of ${joinedValues}.`,
+    empowermentTheme: `Reflect the empowerment theme of ${joinedValues}.`,
+    subject: `Feature ${joinedValues} as the main subject.`,
+    bodyType: `Depict the subject with a ${joinedValues} body type.`,
+    ethnicity: `Depict the subject as ${joinedValues}.`,
+    ageGroup: `Depict the subject as ${joinedValues}.`,
+    environment: `Place the subject in a ${joinedValues} setting.`,
+    colorPalette: `Use a ${joinedValues} color palette.`,
+    typographyStyle: `Render the affirmation text using ${joinedValues} typography.`,
+    lighting: `Use ${joinedValues} lighting.`,
+    composition: `Use a ${joinedValues} composition.`,
+    visualDetails: `Include these visual details: ${joinedValues}.`,
+    affirmationText: `Include this affirmation text: "${joinedValues}".`,
+    additionalInstructions: `Additional creative instructions: ${joinedValues}.`,
   };
 
   return segmentMap[category.id] || "";
@@ -1495,7 +1538,10 @@ function removeDuplicateSegments(segments) {
   const seen = new Set();
 
   return segments.filter((segment) => {
-    const normalized = segment.toLowerCase().replace(/[^\w\s]/g, "").trim();
+    const normalized = segment
+      .toLowerCase()
+      .replace(/[^\w\s]/g, "")
+      .trim();
 
     if (!normalized || seen.has(normalized)) {
       return false;
@@ -1527,7 +1573,7 @@ function buildPromptSections(inputData) {
 
   return {
     selections: removeDuplicateSegments(selectionSegments),
-    userContent: removeDuplicateSegments(userContentSegments)
+    userContent: removeDuplicateSegments(userContentSegments),
   };
 }
 
@@ -1538,32 +1584,109 @@ function buildPromptSections(inputData) {
 function assembleFinalPrompt(inputData) {
   const sections = buildPromptSections(inputData);
 
-  const promptParts = [
-    `Create a faith-based luxury affirmation artwork prompt for AI image generation.`,
-
-    sections.selections.length
-      ? `Creative direction:\n${sections.selections.join("\n")}`
-      : "",
-
-    sections.userContent.length
-      ? `User content:\n${sections.userContent.join("\n")}`
-      : "",
-
-    `Quality instructions: Make the artwork cohesive, professional, visually balanced, highly detailed, faith-centered, and suitable for premium AI image generation.`,
-
-    `Output instructions: Produce one polished, copy-ready AI image prompt with clear visual direction and no unnecessary placeholder text.`
+  const promptSentences = [
+    `Create a polished faith-based luxury affirmation artwork image.`,
+    ...sections.selections,
+    ...sections.userContent,
+    `Display the affirmation text clearly and beautifully as part of the artwork using the selected typography style.`,
+    `Render this as a finished image, not as a prompt template.`,
+    `Make the artwork cohesive, professional, visually balanced, highly detailed, faith-centered, emotionally uplifting, and suitable for premium wall art, digital artwork, or social media content.`,
   ];
 
-  return promptParts
+  return promptSentences
     .filter((part) => cleanText(part))
-    .join("\n\n")
+    .join(" ")
     .trim();
 }
 
 function updatePromptOutput(prompt) {
   appState.generatedPrompt = prompt;
   safeSetValue(DOM.finalPrompt, prompt);
-  updateCharacterCounter(prompt);
+}
+
+function collectSunoBuilderData() {
+  const getValue = (element) => {
+    if (!element) {
+      return "";
+    }
+
+    const value = cleanText(element.value);
+
+    return value === DEFAULT_VALUES.SELECT ? "" : value;
+  };
+
+  return {
+    musicFormat: getValue(DOM.sunoBuilder.musicFormat),
+    musicGenre: getValue(DOM.sunoBuilder.musicGenre),
+    musicReference: getValue(DOM.sunoBuilder.musicReference),
+    vocalType: getValue(DOM.sunoBuilder.vocalType),
+    songLength: getValue(DOM.sunoBuilder.songLength),
+    lyricsType: getValue(DOM.sunoBuilder.lyricsType),
+    musicMood: getValue(DOM.sunoBuilder.musicMood),
+    musicEnergy: getValue(DOM.sunoBuilder.musicEnergy),
+    musicTempo: getValue(DOM.sunoBuilder.musicTempo),
+    musicInstruments: getValue(DOM.sunoBuilder.musicInstruments),
+    songStructure: getValue(DOM.sunoBuilder.songStructure),
+    vocalDelivery: getValue(DOM.sunoBuilder.vocalDelivery),
+    customLyrics: getValue(DOM.sunoBuilder.customLyrics),
+    musicAvoid: getValue(DOM.sunoBuilder.musicAvoid),
+    additionalMusicInstructions: getValue(
+      DOM.sunoBuilder.additionalMusicInstructions,
+    ),
+  };
+}
+
+function collectMarketingBuilderData() {
+  const getValue = (element) => {
+    if (!element) {
+      return "";
+    }
+
+    const value = cleanText(element.value);
+
+    return value === DEFAULT_VALUES.SELECT ? "" : value;
+  };
+
+  return {
+    marketingGoal: getValue(DOM.marketingBuilder.marketingGoal),
+    marketingOfferName: getValue(DOM.marketingBuilder.marketingOfferName),
+    marketingAudience: getValue(DOM.marketingBuilder.marketingAudience),
+    marketingPlatform: getValue(DOM.marketingBuilder.marketingPlatform),
+    marketingTone: getValue(DOM.marketingBuilder.marketingTone),
+    marketingCallToAction: getValue(DOM.marketingBuilder.marketingCallToAction),
+    marketingLinkDestination: getValue(
+      DOM.marketingBuilder.marketingLinkDestination,
+    ),
+    marketingContentType: getValue(DOM.marketingBuilder.marketingContentType),
+    marketingKeywords: getValue(DOM.marketingBuilder.marketingKeywords),
+    marketingAvoid: getValue(DOM.marketingBuilder.marketingAvoid),
+    additionalMarketingInstructions: getValue(
+      DOM.marketingBuilder.additionalMarketingInstructions,
+    ),
+  };
+}
+
+function collectCustomGptBuilderData() {
+  const getValue = (element) => {
+    if (!element) {
+      return "";
+    }
+
+    const value = cleanText(element.value);
+
+    return value === DEFAULT_VALUES.SELECT ? "" : value;
+  };
+
+  return {
+    gptName: getValue(DOM.customGptBuilder.gptName),
+    gptAudience: getValue(DOM.customGptBuilder.gptAudience),
+    gptTone: getValue(DOM.customGptBuilder.gptTone),
+    gptQuestionStyle: getValue(DOM.customGptBuilder.gptQuestionStyle),
+    gptResultCount: getValue(DOM.customGptBuilder.gptResultCount),
+    additionalGptInstructions: getValue(
+      DOM.customGptBuilder.additionalGptInstructions,
+    ),
+  };
 }
 
 function buildPremiumContext(inputData) {
@@ -1587,342 +1710,437 @@ function buildPremiumContext(inputData) {
     composition: getValues("composition"),
     visualDetails: getValues("visualDetails"),
     affirmationText: getValues("affirmationText"),
-    additionalInstructions: getValues("additionalInstructions")
+    additionalInstructions: getValues("additionalInstructions"),
   };
 }
 
 function generateSunoPrompt(inputData) {
   const c = buildPremiumContext(inputData);
+  const music = collectSunoBuilderData();
 
-  return `SUNO AI MUSIC PROMPT
+  const affirmation = c.affirmationText || "God is still working in my life.";
 
-SONG TITLE IDEA
-"${c.affirmationText || "Faith Over Fear"}"
+  const faithTheme = c.faithTheme || "faith";
+  const empowermentTheme = c.empowermentTheme || "hope";
 
-SONG CONCEPT
-Create an uplifting faith-based inspirational song inspired by a luxury affirmation artwork centered on ${c.faithTheme || "God's Love"} and ${c.empowermentTheme || "Hope"}.
+  const referenceDirection = music.musicReference
+    ? `Use the emotional qualities associated with ${music.musicReference}, such as powerful worship vocals, uplifting gospel energy, rich harmonies, emotional builds, and a strong faith-centered delivery. Do not copy any existing melody, lyrics, or recording.`
+    : "";
 
-OVERALL MOOD
-Hopeful, peaceful, joyful, encouraging, feminine, emotionally moving, worshipful, and cinematic.
+  const lyricsDirection =
+    music.lyricsType === "Instrumental"
+      ? `Create an instrumental track with no sung or spoken lyrics.`
+      : `Write original ${music.lyricsType || "song"} lyrics centered on the affirmation: "${affirmation}"
 
-GENRE
-Modern Inspirational Gospel • Contemporary Christian • Cinematic Worship • Soulful Pop
+The lyrics should communicate ${faithTheme}, ${empowermentTheme}, confidence, spiritual covering, purpose, and trust in God.
 
-VOCAL STYLE
-Warm female lead vocal with rich harmonies, emotional delivery, clear diction, gentle power, and heartfelt expression.
+Use the affirmation naturally as the main message or chorus hook without repeating it excessively.
 
-INSTRUMENTATION
-Soft piano, acoustic guitar, warm strings, subtle choir pads, light percussion, ambient textures, inspirational orchestral build, and uplifting finale.
+Create a clear song structure using ${
+          music.songStructure ||
+          "Verse 1, Pre-Chorus, Chorus, Verse 2, Bridge, and Final Chorus"
+        }.
 
-LYRICAL DIRECTION
+The chorus should be memorable, emotionally powerful, and easy to sing along with.`;
 
-Write lyrics about:
+  return `SUNO MUSIC CREATION BRIEF
 
-• God's faithfulness
-• Walking by faith
-• Hope after difficult seasons
-• Inner peace
-• Grace
-• Joy
-• Renewal
-• Trusting God's timing
+Create a ${music.musicFormat || "full song"} with a total length of approximately ${
+    music.songLength || "3 minutes"
+  }.
 
-Use this affirmation as the emotional foundation:
+STYLE OF MUSIC
 
-"${c.affirmationText || "God is still working in my life."}"
+Genre: ${music.musicGenre || "Gospel"}.
+Mood: ${music.musicMood || "Uplifting"}.
+Energy: ${music.musicEnergy || "Moderate"}.
+Tempo: ${music.musicTempo || "Mid-Tempo"}.
+Vocal arrangement: ${music.vocalType || "Female Vocal"}.
+Vocal delivery: ${
+    music.vocalDelivery ||
+    "Soulful, expressive, powerful, warm, and faith-filled"
+  }.
+Instrumentation: ${
+    music.musicInstruments ||
+    "Piano, organ, gospel drums, bass, warm strings, handclaps, and layered choir harmonies"
+  }.
 
-VISUAL INSPIRATION
+${referenceDirection}
 
-Artwork Style:
-${c.artworkStyle || "Illustration"}
+SONG MESSAGE
 
-Subject:
-${c.subject || "Faith-filled woman"}
+Faith theme: ${faithTheme}.
+Empowerment theme: ${empowermentTheme}.
+Central affirmation: "${affirmation}".
 
-Environment:
-${c.environment || "Heavenly Light"}
+${lyricsDirection}
 
-Lighting:
-${c.lighting || "Soft cinematic lighting"}
+${
+  music.customLyrics
+    ? `REQUIRED LYRICS OR PHRASES
 
-Color Palette:
-${c.colorPalette || "Gold and White"}
+Include these original words or phrases naturally:
 
-Visual Details:
-${c.visualDetails || "Light rays, soft glow, elegant details"}
+${music.customLyrics}`
+    : ""
+}
 
-SONG STRUCTURE
+${
+  music.musicAvoid
+    ? `AVOID
 
-• Intro
-• Verse 1
-• Pre-Chorus
-• Chorus
-• Verse 2
-• Bridge
-• Final Chorus
-• Inspirational Ending
+${music.musicAvoid}`
+    : ""
+}
 
-PRODUCTION STYLE
+${
+  music.additionalMusicInstructions
+    ? `ADDITIONAL DIRECTIONS
 
-Luxury.
-Clean.
-Professional.
-Modern.
-Radio quality.
-Warm.
-Emotional.
-Hope-filled.
+${music.additionalMusicInstructions}`
+    : ""
+}
 
-AVOID
+FINAL DIRECTION
 
-• Dark themes
-• Anger
-• Violence
-• Fear-based messaging
-• Heavy rock
-• Aggressive vocals
-• Negative language
+Create an original, polished, emotionally engaging faith-based song with a strong beginning, memorable chorus, satisfying musical build, and powerful ending.
 
-FINAL SUNO PROMPT
-
-Create a professionally produced contemporary inspirational Christian song with cinematic worship influences inspired by ${c.faithTheme || "God's Love"} and ${c.empowermentTheme || "Hope"}.
-
-Use warm female vocals, uplifting instrumentation, emotional storytelling, and elegant production.
-
-The lyrics should center around:
-
-"${c.affirmationText || "God is still working in my life."}"
-
-The overall feeling should be luxurious, peaceful, encouraging, faith-filled, emotionally moving, and suitable for modern Christian listeners.`;
+Preserve the meaning of the affirmation. Do not copy existing melodies, lyrics, vocal performances, or recordings.`;
 }
 
 function generateVideoScriptPrompt(inputData) {
   const c = buildPremiumContext(inputData);
 
-  return `VIDEO SCRIPT PROMPT
+  const affirmation = c.affirmationText || "God is still working in my life.";
 
-VIDEO CONCEPT
-Create a polished short-form promotional video script for a faith-based luxury affirmation artwork product.
+  return `Create a finished cinematic faith-based affirmation video.
 
-PRODUCT STYLE
-A premium ${c.artworkStyle || "luxury"} affirmation artwork centered on ${c.faithTheme || "faith"} and ${c.empowermentTheme || "encouragement"}.
+FORMAT
 
-AFFIRMATION
-"${c.affirmationText || "God is still working in my life."}"
+Vertical 9:16 short-form video.
 
-TARGET AUDIENCE
-Faith-based women, content creators, digital product buyers, spiritual art lovers, inspirational décor shoppers, and customers who enjoy beautiful polished faith-centered artwork.
+LENGTH
 
-VIDEO LENGTH
-30 seconds.
-
-VIDEO FORMAT
-Vertical short-form video for TikTok, Instagram Reels, Pinterest, Facebook Reels, and YouTube Shorts.
+8 to 10 seconds.
 
 VISUAL DIRECTION
-Subject: ${c.subject || "Faith-centered subject"}
-Body type: ${c.bodyType || "Not specified"}
-Ethnicity: ${c.ethnicity || "Not specified"}
-Age group: ${c.ageGroup || "Not specified"}
-Environment: ${c.environment || "Soft spiritual setting"}
-Color palette: ${c.colorPalette || "Luxury colors"}
-Typography: ${c.typographyStyle || "Elegant typography"}
-Lighting: ${c.lighting || "Soft cinematic lighting"}
-Composition: ${c.composition || "Balanced artwork layout"}
-Visual details: ${c.visualDetails || "soft glow, light rays, elegant details"}
 
-OPENING HOOK
-"Some reminders are too beautiful to scroll past."
+Create the video in a ${c.artworkStyle || "Luxury Editorial"} style.
 
-SCENE-BY-SCENE SCRIPT
+Feature ${c.subject || "an individual"} as the main subject.
 
-SCENE 1 — 0:00-0:04
-Visual: Slow reveal of the artwork with soft lighting and elegant movement.
-On-screen text: "A little reminder for your spirit."
-Voiceover: "Sometimes your space needs more than decoration."
+Subject details:
+Body type: ${c.bodyType || "Not specified"}.
+Ethnicity: ${c.ethnicity || "Not specified"}.
+Age group: ${c.ageGroup || "Not specified"}.
 
-SCENE 2 — 0:05-0:09
-Visual: Close-up of the affirmation typography.
-On-screen text: "${c.affirmationText || "God is still working in my life."}"
-Voiceover: "It needs a reminder of what God is still doing in you."
+Place the subject in a ${c.environment || "soft spiritual"} setting.
 
-SCENE 3 — 0:10-0:15
-Visual: Highlight the subject, environment, and faith-filled visual details.
-On-screen text: "${c.faithTheme || "Faith"} • ${c.empowermentTheme || "Hope"}"
-Voiceover: "This faith-based luxury artwork was created to bring encouragement, beauty, and peace into your everyday life."
+Center the visual message on ${c.faithTheme || "faith"} and ${c.empowermentTheme || "hope"}.
 
-SCENE 4 — 0:16-0:22
-Visual: Show the artwork styled as wall art, printable décor, digital art, or a product mockup.
-On-screen text: "Perfect for prayer spaces, offices, gifts, and inspiration."
-Voiceover: "Use it in your prayer corner, workspace, gallery wall, digital collection, or as a meaningful gift."
+Use a ${c.colorPalette || "Gold & White"} color palette, ${c.lighting || "soft cinematic"} lighting, and a ${c.composition || "balanced portrait"} composition.
 
-SCENE 5 — 0:23-0:30
-Visual: Final full view of the artwork with soft glow and clean product framing.
-On-screen text: "Bring faith-filled beauty into your space."
-Voiceover: "Let this piece remind you that your faith, your joy, and your purpose still matter."
+Include these visual details: ${c.visualDetails || "soft glow, elegant textures, and gentle light rays"}.
 
-CALL TO ACTION
-Shop now and add this faith-filled artwork to your collection.
+VIDEO ACTION
 
-CAPTION
-This faith-based luxury affirmation artwork was created to bring beauty, peace, and encouragement into your space. A polished reminder that God is still moving, still covering, and still working in your life.
+Begin with the subject already visible.
 
-HASHTAGS
-#FaithBasedArt #ChristianWallArt #AffirmationArtwork #InspirationalArt #FaithDecor #DigitalArtwork #FaithFilledHome`;
+Use one slow, smooth camera movement such as a gentle push-in, subtle pullback, or soft side-to-side motion.
+
+Add natural movement to the subject’s clothing, hair, background light, or surrounding details.
+
+Do not use fast cuts or multiple scenes.
+
+AFFIRMATION TEXT
+
+Display this affirmation clearly throughout the main portion of the video:
+
+"${affirmation}"
+
+Render the affirmation using ${c.typographyStyle || "Luxury Serif"} typography.
+
+Keep the text large, readable, elegant, and visually integrated into the scene.
+
+VOICEOVER
+
+Read only this affirmation slowly and warmly:
+
+"${affirmation}"
+
+AUDIO
+
+Use soft inspirational instrumental music with gentle piano, ambient pads, warm strings, or subtle gospel-inspired tones.
+
+FINAL INSTRUCTIONS
+
+Create a finished video, not a script, storyboard, outline, or planning document.
+
+Keep the video visually simple, polished, luxurious, faith-centered, and emotionally uplifting.
+
+Avoid extra captions, opening statements, closing statements, fast transitions, clutter, random symbols, fake AI graphics, dashboards, charts, scan lines, crowns, tiaras, and unrelated effects.`;
 }
 
 function generateMarketingPrompt(inputData) {
   const c = buildPremiumContext(inputData);
+  const marketing = collectMarketingBuilderData();
 
-  return `MARKETING PACKAGE
+  const offerName =
+    marketing.marketingOfferName ||
+    `${c.faithTheme || "Faith-Based"} Affirmation Artwork`;
 
-PRODUCT POSITIONING
+  const audience =
+    marketing.marketingAudience ||
+    "faith-based women, inspirational art lovers, and digital product buyers";
 
-A premium faith-based luxury affirmation artwork designed to inspire hope, strengthen faith, and bring elegant spiritual encouragement into everyday life. This artwork combines ${c.artworkStyle || "luxury illustration"}, refined typography, and meaningful affirmation messaging to create a timeless piece suitable for home décor, printable wall art, digital collections, gifts, and inspirational spaces.
+  const affirmation = c.affirmationText || "Faith changes everything.";
 
-────────────────────────────
+  const callToAction =
+    marketing.marketingCallToAction || "Click the link to learn more.";
 
-SHORT PRODUCT DESCRIPTION
+  const linkDestination =
+    marketing.marketingLinkDestination || "the product page";
 
-Bring beauty and faith together with this premium affirmation artwork inspired by ${c.faithTheme || "God's promises"} and ${c.empowermentTheme || "encouragement"}.
+  const keywords =
+    marketing.marketingKeywords ||
+    `${c.faithTheme || "faith"} affirmation, Christian artwork, inspirational art, faith-based digital product`;
 
-Featuring a ${c.subject || "faith-inspired subject"} in a ${c.environment || "beautiful setting"}, accented with ${c.visualDetails || "elegant details"}, this artwork is designed with a ${c.colorPalette || "luxury"} color palette and ${c.typographyStyle || "elegant"} typography.
+  const tone =
+    marketing.marketingTone ||
+    "warm, polished, faith-centered, and encouraging";
 
-Affirmation:
+  return `Create a complete ${marketing.marketingContentType || "multi-platform marketing package"} for the following offer.
 
-"${c.affirmationText || "Faith changes everything."}"
+OFFER DETAILS
 
-Perfect for printable wall art, prayer spaces, offices, gifts, digital backgrounds, social media graphics, and inspirational collections.
+Offer name: ${offerName}
+Marketing goal: ${marketing.marketingGoal || "Promote the offer"}
+Target audience: ${audience}
+Main platform: ${marketing.marketingPlatform || "Multi-Platform"}
+Marketing tone: ${tone}
+Link destination: ${linkDestination}
+Preferred call to action: ${callToAction}
 
-────────────────────────────
+ARTWORK MESSAGE
 
-SOCIAL MEDIA CAPTION
+Faith theme: ${c.faithTheme || "Faith"}
+Empowerment theme: ${c.empowermentTheme || "Encouragement"}
+Affirmation: "${affirmation}"
+Artwork style: ${c.artworkStyle || "Luxury Editorial"}
+Color palette: ${c.colorPalette || "Luxury colors"}
+Visual details: ${c.visualDetails || "Elegant faith-centered details"}
 
-Every day is another opportunity to remember God's promises.
+PINTEREST PACKAGE
 
-This luxury faith-inspired affirmation artwork was created to encourage your heart, brighten your space, and remind you that God is still working behind the scenes.
+Create:
 
-"${c.affirmationText || "Faith changes everything."}"
+• One SEO-friendly Pinterest pin title
+• One persuasive Pinterest description
+• One clear call to action
+• Five relevant Pinterest keywords
+• No more than five hashtags
+• One recommendation for the type of pin image or layout to post
+• One short text overlay for the pin
 
-Beautiful.
-Elegant.
-Faith-filled.
+Keep the Pinterest description under 800 characters and naturally include the strongest keywords.
 
-Perfect for women who love inspirational décor, meaningful artwork, and daily encouragement.
+TIKTOK PACKAGE
 
-────────────────────────────
+Create:
 
-3 HOOKS
+• One strong opening hook
+• One short TikTok caption
+• One on-screen text idea
+• One 15- to 30-second video concept
+• One clear call to action
+• Five relevant hashtags
 
-1. Beautiful artwork that speaks to your spirit.
+Make the content natural, engaging, easy to film, and focused on the offer’s real value.
 
-2. More than décor—this is a daily reminder of God's promises.
+INSTAGRAM PACKAGE
 
-3. Fill your home with faith, encouragement, and timeless beauty.
+Create:
 
-────────────────────────────
+• One Instagram caption
+• One opening hook
+• One call to action
+• Five hashtags
+• One Reel or carousel content idea
 
-3 CALL TO ACTION OPTIONS
+FACEBOOK PACKAGE
 
-1. Shop now and bring faith-filled beauty into your space.
+Create:
 
-2. Add this inspiring artwork to your collection today.
+• One Facebook post
+• One short headline
+• One clear call to action
+• One engagement question
 
-3. Download instantly and enjoy a daily reminder of God's goodness.
+EMAIL PACKAGE
 
-────────────────────────────
+Create:
 
-CUSTOMER BENEFITS
+• Three email subject line options
+• One preview-text option
+• One promotional email body
+• One clear button call to action
 
-• Encourages daily faith and positivity
-• Creates a peaceful, uplifting atmosphere
-• Makes a thoughtful Christian gift
-• Beautiful enough for home, office, or prayer room décor
-• Perfect for printable wall art and digital products
+Keep the email warm, direct, easy to understand, and focused on the buyer’s benefit.
 
-────────────────────────────
+YOUTUBE PACKAGE
 
-IDEAL CUSTOMER
+Create:
 
-• Faith-based women
-• Christian content creators
-• Digital product buyers
-• Church leaders
-• Prayer warriors
-• Inspirational art lovers
-• Christian gift shoppers
+• One YouTube video title
+• One short YouTube description
+• One opening hook
+• One call to action
+• Five search keywords
+• One short-form video idea
 
-────────────────────────────
+AD COPY PACKAGE
 
-SELLING POINTS
+Create:
 
-• Premium luxury design
-• Faith-centered message
-• Elegant typography
-• Professionally balanced composition
-• High-quality printable artwork
-• Timeless inspirational décor
+• One short primary-text ad
+• One headline
+• One description
+• One call-to-action recommendation
 
-────────────────────────────
+SEO AND DISCOVERY
 
-KEYWORDS
+Use these keywords or phrases naturally:
 
-Faith-Based Wall Art
-Christian Wall Art
-Luxury Christian Decor
-Bible Affirmations
-Inspirational Artwork
-Prayer Room Decor
-Printable Christian Art
-Faith Home Decor
-Christian Gift
-Religious Wall Art
+${keywords}
 
-────────────────────────────
+${
+  marketing.marketingAvoid
+    ? `AVOID
 
-HASHTAGS
+Do not use these words, claims, or topics:
 
-#FaithBasedArt
-#ChristianWallArt
-#BibleAffirmations
-#FaithDecor
-#LuxuryWallArt
-#ChristianWomen
-#PrayerRoom
-#InspirationalArt
-#PrintableWallArt
-#DigitalDownloads`;
+${marketing.marketingAvoid}`
+    : ""
+}
+
+${
+  marketing.additionalMarketingInstructions
+    ? `ADDITIONAL MARKETING INSTRUCTIONS
+
+${marketing.additionalMarketingInstructions}`
+    : ""
+}
+
+FINAL INSTRUCTIONS
+
+Write platform-specific marketing copy instead of repeating the same caption everywhere.
+
+Keep the content clear, polished, persuasive, beginner-friendly, and appropriate for ${audience}.
+
+Do not use exaggerated claims, fake urgency, generic filler, or unsupported promises.
+
+Preserve the affirmation exactly as written.
+
+Return the finished marketing content, not an explanation of how to create it.`;
 }
 
 function generateCustomGptPrompt(inputData) {
   const c = buildPremiumContext(inputData);
+  const gpt = collectCustomGptBuilderData();
+
+  const gptName = gpt.gptName || "Faith-Based Affirmation Art Creator";
+
+  const audience =
+    gpt.gptAudience ||
+    "beginners, faith-based women, content creators, and digital product creators";
+
+  const tone = gpt.gptTone || "Warm and Beginner-Friendly";
+
+  const questionStyle = gpt.gptQuestionStyle || "One Question at a Time";
+
+  const resultCount = gpt.gptResultCount || "One Polished Result";
+
+  const affirmation = c.affirmationText || "God is still working in my life.";
+
+  const questionWorkflowMap = {
+    "One Question at a Time": `
+Ask only one clear question at a time.
+
+Wait for the user's answer before asking the next question.
+
+Move through the generator categories in a logical order without overwhelming the user.`,
+
+    "Small Groups of Questions": `
+Ask the questions in small groups of no more than three related questions.
+
+Wait for the user's answers before moving to the next group.
+
+Keep each group simple and clearly labeled.`,
+
+    "All Questions at Once": `
+Ask all necessary generator questions in one organized message.
+
+Group the questions under short, clear headings.
+
+Do not ask the same questions again unless the user's response is incomplete or unclear.`,
+  };
+
+  const resultInstructionMap = {
+    "One Polished Result": `
+Create one complete, polished image-generation prompt.
+
+Return only one final option unless the user specifically requests alternatives.`,
+
+    "Two Options": `
+Create two clearly different, complete image-generation prompt options.
+
+Preserve the user's affirmation and required selections in both options.
+
+Make each option meaningfully different in visual direction rather than changing only a few words.`,
+
+    "Three Options": `
+Create three clearly different, complete image-generation prompt options.
+
+Preserve the user's affirmation and required selections in every option.
+
+Make all three options meaningfully different in artwork direction, composition, atmosphere, or styling.`,
+  };
+
+  const outputLabelMap = {
+    "One Polished Result": "one polished image-generation prompt",
+    "Two Options": "two polished image-generation prompt options",
+    "Three Options": "three polished image-generation prompt options",
+  };
+
+  const questionWorkflow =
+    questionWorkflowMap[questionStyle] ||
+    questionWorkflowMap["One Question at a Time"];
+
+  const resultInstructions =
+    resultInstructionMap[resultCount] ||
+    resultInstructionMap["One Polished Result"];
+
+  const outputLabel =
+    outputLabelMap[resultCount] || outputLabelMap["One Polished Result"];
 
   return `CUSTOM GPT BUILDER CONFIGURATION
 
 GPT NAME
 
-Faith-Based Luxury Affirmation Artwork Prompt Creator
+${gptName}
 
 ────────────────────────────
 
 GPT PURPOSE
 
-Help users create polished, copy-ready AI image prompts for faith-based luxury affirmation artwork.
+Help ${audience} create polished faith-based luxury affirmation artwork prompts using the approved categories, options, workflow, and image-output structure from this generator.
 
-This GPT is designed for users who want to create spiritual artwork prompts for printable wall art, digital products, social media graphics, Christian gifts, inspirational décor, prayer spaces, journals, planners, and premium affirmation collections.
-
-────────────────────────────
-
-SPECIALTY
-
-This GPT specializes in creating faith-centered luxury affirmation artwork prompts with strong creative direction, emotional clarity, and polished visual detail.
-
-It guides users through:
+The GPT should guide users through:
 
 • Artwork style
 • Faith theme
 • Empowerment theme
-• Subject details
+• Subject
 • Body type
 • Ethnicity
 • Age group
@@ -1937,240 +2155,160 @@ It guides users through:
 
 ────────────────────────────
 
-DEFAULT CREATIVE DIRECTION
-
-Artwork style: ${c.artworkStyle || "Illustration"}
-Faith theme: ${c.faithTheme || "Joy in the Lord"}
-Empowerment theme: ${c.empowermentTheme || "Joy"}
-Subject: ${c.subject || "Child"}
-Environment: ${c.environment || "Sunrise"}
-Color palette: ${c.colorPalette || "Soft Pastels"}
-Typography style: ${c.typographyStyle || "Hand Lettered"}
-Lighting: ${c.lighting || "Soft radiant lighting"}
-Composition: ${c.composition || "Balanced poster layout"}
-Visual details: ${c.visualDetails || "Butterflies, flowers, and light rays"}
-
-────────────────────────────
-
 COMPLETE CUSTOM GPT INSTRUCTIONS
 
-You are an expert AI prompt engineer, creative director, and faith-based luxury affirmation artwork specialist.
+You are an expert creative director and AI image-prompt specialist for faith-based luxury affirmation artwork.
 
-Your job is to help users create one polished, copy-ready AI image prompt for faith-based luxury affirmation artwork.
+Your job is to help users create direct instructions for finished images.
 
-Your prompts should be beautiful, faith-centered, emotionally clear, visually balanced, and suitable for premium AI image generation platforms.
+Do not create prompts about creating prompts.
 
-You should help beginners without overwhelming them. Ask only the most important questions first. If the user gives limited details, make tasteful creative choices that match a luxury, feminine, faith-centered artwork style.
+TARGET AUDIENCE
 
-Every final prompt should include:
+${audience}
 
-• Artwork style
-• Faith theme
-• Empowerment theme
-• Subject
-• Subject details
-• Body type, if provided
-• Ethnicity, if provided
-• Age group, if provided
-• Environment
-• Color palette
-• Typography style
-• Lighting
-• Composition
-• Visual details
-• Affirmation text
-• Emotional tone
-• Quality instructions
+TONE AND PERSONALITY
 
-When information is missing, use the default creative direction.
+${tone}
 
-The final output should always be one clean, structured AI image prompt ready to paste into an image generation platform.
+QUESTION STYLE
+
+${questionStyle}
+
+${questionWorkflow}
+
+RESULT COUNT
+
+${resultCount}
+
+${resultInstructions}
 
 ────────────────────────────
 
-USER INPUTS TO ASK FOR
+CORE WORKFLOW
 
-Ask the user for these details:
+1. Collect the user's affirmation text.
+2. Collect the faith theme and empowerment theme.
+3. Identify the main subject.
+4. Collect subject details only when they are relevant.
+5. Collect the environment, artwork style, color palette, typography, lighting, composition, and visual details.
+6. Collect any final custom instructions.
+7. Review the selections for conflicts, missing information, or unnecessary clutter.
+8. Create ${outputLabel}.
 
-1. What affirmation text do you want included?
-2. What faith theme do you want?
-3. Who is the subject?
-4. What environment or background do you want?
-5. What artwork style do you prefer?
-6. What color palette do you want?
-7. What custom creative details should be included?
+When the user is unsure, provide only one or two helpful choices at a time.
 
-If the user seems unsure, offer only 1-2 choices at a time.
-
-────────────────────────────
-
-WELCOME MESSAGE
-
-Welcome. I can help you turn your faith-based affirmation into a polished luxury artwork prompt.
-
-Share your affirmation, subject, and the feeling you want the artwork to have, and I’ll create one clean, copy-ready AI image prompt for you.
+Do not override choices the user already provided.
 
 ────────────────────────────
 
-CONVERSATION STARTERS
+DEFAULT CREATIVE DIRECTION
 
-1. Create a luxury faith-based affirmation artwork prompt using the affirmation "${c.affirmationText || "Joy comes in the morning."}"
+Artwork style: ${c.artworkStyle || "Luxury Editorial"}
+Faith theme: ${c.faithTheme || "Faith"}
+Empowerment theme: ${c.empowermentTheme || "Encouragement"}
+Subject: ${c.subject || "Individual Portrait"}
+Body type: ${c.bodyType || "Not specified"}
+Ethnicity: ${c.ethnicity || "Not specified"}
+Age group: ${c.ageGroup || "Not specified"}
+Environment: ${c.environment || "Luxury Interior"}
+Color palette: ${c.colorPalette || "Royal Blue & Gold"}
+Typography style: ${c.typographyStyle || "Luxury Serif"}
+Lighting: ${c.lighting || "Soft Natural"}
+Composition: ${c.composition || "Centered Portrait"}
+Visual details: ${c.visualDetails || "Soft Glow, Light Rays, Elegant Textures"}
+Affirmation: "${affirmation}"
 
-2. Help me turn my Christian affirmation into a polished AI image prompt.
-
-3. Create a soft pastel faith-based wall art prompt for women.
-
-4. Build a premium prayer room artwork prompt.
-
-5. Make this affirmation artwork feel more elegant and professional.
-
-────────────────────────────
-
-SUGGESTED KNOWLEDGE FILES TO UPLOAD
-
-• Brand style guide
-• Approved color palette list
-• Approved faith themes
-• Approved empowerment themes
-• Affirmation examples
-• Artwork style examples
-• Typography style guide
-• Prompt examples that created strong image results
-• Product listing examples
-• Banned visual elements list
-• Platform-specific image prompt tips
+Use these defaults only when the user does not provide a choice.
 
 ────────────────────────────
 
-BEHAVIOR AND RESPONSE GUIDELINES
+FINAL OUTPUT RULES
 
-Always:
+Every final option must:
 
-• Be beginner-friendly
-• Be clear and direct
-• Keep the process simple
-• Ask only necessary questions
-• Preserve the user's affirmation exactly
-• Produce one polished copy-ready prompt
-• Make tasteful creative decisions when details are missing
-• Keep the final prompt luxury, faith-centered, feminine, and emotionally clear
-• Make sure the artwork direction feels cohesive
-• Use strong visual direction
-• Avoid clutter
-
-Never:
-
-• Overwhelm the user
-• Output multiple versions unless requested
-• Use placeholders
-• Add random unrelated design elements
-• Add crowns, tiaras, or royal headpieces unless specifically requested
-• Add fake AI graphics, HUD overlays, dashboards, scan lines, charts, or tech clutter unless requested
-• Change the user's affirmation
-• Make the artwork feel cheap, chaotic, or generic
-
-────────────────────────────
-
-TONE AND PERSONALITY INSTRUCTIONS
-
-The GPT should sound:
-
-• Warm
-• Professional
-• Encouraging
-• Creative
-• Polished
-• Calm
-• Easy to understand
-
-It should feel like a creative director helping the user turn a simple faith-based idea into a premium visual prompt.
-
-────────────────────────────
-
-GOALS AND RESPONSIBILITIES
-
-The GPT should:
-
-• Help users create premium faith-based affirmation artwork prompts
-• Turn simple ideas into polished image-generation prompts
-• Improve weak or vague creative ideas
-• Keep artwork prompts visually balanced
-• Make faith themes feel meaningful and respectful
-• Help users create artwork suitable for digital products, wall art, gifts, and inspirational content
-• Protect the user's chosen affirmation
-• Keep every final prompt easy to copy and paste
-
-────────────────────────────
-
-RULES AND LIMITATIONS
-
-• Do not create hateful, disrespectful, explicit, or offensive religious content.
-• Do not mock faith, prayer, scripture, worship, or spiritual themes.
-• Do not guarantee exact image results.
-• Do not provide legal, medical, or financial claims.
-• Do not force a denomination unless the user requests it.
-• Do not use copyrighted characters, celebrities, or trademarked brands unless the user has rights.
-• Do not add cluttered or unrelated symbols.
-• Do not use crowns, tiaras, or royal accessories unless the user asks.
-• Do not use futuristic AI graphics unless the user asks.
+• Directly instruct an image generator to create a finished image
+• Preserve the affirmation exactly
+• Use the user's selected categories
+• Keep the artwork cohesive and visually balanced
+• Include clear typography placement and readability instructions
+• Keep faith themes respectful and meaningful
+• Avoid filler, placeholders, and repeated wording
+• Avoid unnecessary follow-up questions
+• Avoid crowns, tiaras, and royal headpieces unless requested
+• Avoid fake AI graphics, dashboards, charts, scan lines, and futuristic clutter unless requested
+• Avoid unrelated objects and random symbols
 
 ────────────────────────────
 
 FINAL OUTPUT FORMAT
 
-Return one clean AI image prompt using this structure:
+Return ${outputLabel}.
 
-Create a faith-based luxury affirmation artwork in a [artwork style] visual style, centered on [faith theme] and [empowerment theme]. Feature [subject] with [subject details] in [environment], using a [color palette] color palette with [typography style] typography. Include [visual details]. Add the affirmation text: "[affirmation text]". Use [lighting] and [composition]. Make the artwork cohesive, professional, visually balanced, faith-centered, emotionally uplifting, highly detailed, and suitable for premium AI image generation.
+Each option must be a complete, copy-ready image-generation prompt.
 
-Do not include explanations before or after the prompt unless the user asks.
+Use this structure as a guide:
 
-────────────────────────────
+Create a polished faith-based luxury affirmation artwork image in a [artwork style] style. Center the artwork on [faith theme] and [empowerment theme]. Feature [subject] as the main subject, including [body type], [ethnicity], and [age group] details when provided. Place the subject in [environment]. Use a [color palette] color palette with [typography style] typography. Use [lighting] lighting and a [composition] composition. Include [visual details]. Display this affirmation exactly: "[affirmation text]". Make the finished artwork cohesive, professional, visually balanced, highly detailed, faith-centered, emotionally uplifting, and suitable for premium digital or printed use.
 
-BEST PRACTICES FOR USING THIS GPT
-
-• Start with the affirmation first.
-• Choose one main faith theme.
-• Keep the subject clear.
-• Pick one main environment.
-• Use one strong color palette.
-• Keep visual details meaningful.
-• Avoid adding too many symbols.
-• Match typography to the emotion of the affirmation.
-• Ask for a simplified version if the prompt feels too busy.
-• Ask for a more luxurious version if the prompt feels too plain.
+Do not include explanations before or after the final result unless the user asks.
 
 ────────────────────────────
 
-TESTING CHECKLIST
+WELCOME MESSAGE
 
-Use this checklist before publishing the GPT:
+Welcome. I’ll help you turn your faith-based affirmation into polished luxury artwork.
 
-• Does the GPT ask beginner-friendly questions?
-• Does it avoid overwhelming the user?
-• Does it create one complete AI image prompt?
-• Does it preserve the affirmation exactly?
-• Does it include artwork style?
-• Does it include faith theme?
-• Does it include empowerment theme?
-• Does it include subject details?
-• Does it include environment?
-• Does it include color palette?
-• Does it include typography?
-• Does it include lighting?
-• Does it include composition?
-• Does it include visual details?
-• Does the final prompt feel luxury and polished?
-• Does it avoid clutter?
-• Does it avoid crowns unless requested?
-• Does it avoid fake AI graphics unless requested?
-• Does it work when the user gives minimal details?
-• Is the output copy-and-paste ready?
+Start by sharing the affirmation you want included.
 
 ────────────────────────────
 
-EXAMPLE GENERATED PROMPT
+CONVERSATION STARTERS
 
-Create a faith-based luxury affirmation artwork in a ${c.artworkStyle || "Illustration"} visual style, centered on ${c.faithTheme || "Joy in the Lord"} and ${c.empowermentTheme || "Joy"}. Feature ${c.subject || "a child"} in a ${c.environment || "sunrise"} setting, using a ${c.colorPalette || "soft pastel"} color palette with ${c.typographyStyle || "hand lettered"} typography. Include ${c.visualDetails || "butterflies, flowers, and soft light rays"}. Add the affirmation text: "${c.affirmationText || "Joy comes in the morning."}" Use ${c.lighting || "soft radiant lighting"} and ${c.composition || "balanced poster layout"}. Make the artwork cohesive, professional, visually balanced, faith-centered, emotionally uplifting, highly detailed, and suitable for premium AI image generation.`;
+1. Create faith-based affirmation artwork from my message.
+2. Help me choose a visual direction for my affirmation.
+3. Create luxury faith-centered social media artwork.
+4. Turn my affirmation into polished wall art.
+5. Help me build an uplifting faith-based image concept.
+
+────────────────────────────
+
+RECOMMENDED KNOWLEDGE FILES
+
+• Approved category list
+• Approved option lists
+• Brand style guide
+• Strong prompt examples
+• Visual-reference examples
+• Banned-elements list
+• Product-use guide
+• Testing examples
+
+${
+  gpt.additionalGptInstructions
+    ? `────────────────────────────
+
+ADDITIONAL CUSTOM GPT INSTRUCTIONS
+
+${gpt.additionalGptInstructions}`
+    : ""
+}
+
+────────────────────────────
+
+FINAL BUILD CHECK
+
+Before publishing, verify that the GPT:
+
+• Uses the selected question style without contradicting it
+• Produces the selected number of results
+• Preserves the affirmation exactly
+• Uses the approved categories
+• Creates direct image instructions
+• Avoids prompt-about-prompt wording
+• Uses the selected tone
+• Works when users provide minimal details
+• Returns complete copy-ready image prompts`;
 }
 
 function generatePremiumOutputs(inputData) {
@@ -2181,8 +2319,14 @@ function generatePremiumOutputs(inputData) {
 
   safeSetValue(DOM.premiumOutputs.suno, generateSunoPrompt(inputData));
   safeSetValue(DOM.premiumOutputs.video, generateVideoScriptPrompt(inputData));
-  safeSetValue(DOM.premiumOutputs.marketing, generateMarketingPrompt(inputData));
-  safeSetValue(DOM.premiumOutputs.customGpt, generateCustomGptPrompt(inputData));
+  safeSetValue(
+    DOM.premiumOutputs.marketing,
+    generateMarketingPrompt(inputData),
+  );
+  safeSetValue(
+    DOM.premiumOutputs.customGpt,
+    generateCustomGptPrompt(inputData),
+  );
 }
 
 function clearPremiumOutputs() {
@@ -2207,7 +2351,7 @@ function generatePrompt() {
     if (validationErrors.length) {
       updatePromptOutput("");
       clearPromptVariations();
-      updateQualityScore("");
+
       showToast(validationErrors[0], "error");
       return "";
     }
@@ -2217,15 +2361,15 @@ function generatePrompt() {
     if (!prompt) {
       updatePromptOutput("");
       clearPromptVariations();
-      updateQualityScore("");
+
       showToast("Prompt could not be generated.", "error");
       return "";
     }
 
     updatePromptOutput(prompt);
     generatePromptVariations(prompt, inputData);
-generatePremiumOutputs(inputData);
-updateQualityScore(prompt, inputData);
+    generatePremiumOutputs(inputData);
+
     showToast("Prompt generated.", "success");
 
     return prompt;
@@ -2248,7 +2392,10 @@ function randomizeCategory(category) {
   switch (category.type) {
     case INPUT_TYPES.DROPDOWN: {
       const options = getRandomOptions(category.id);
-      setDropdownValue(category.id, randomFromArray(options) || DEFAULT_VALUES.SELECT);
+      setDropdownValue(
+        category.id,
+        randomFromArray(options) || DEFAULT_VALUES.SELECT,
+      );
       break;
     }
 
@@ -2256,7 +2403,7 @@ function randomizeCategory(category) {
       const options = getRandomOptions(category.id);
       setSelectedChipValue(
         category.id,
-        randomFromArray(options) || DEFAULT_VALUES.SELECT
+        randomFromArray(options) || DEFAULT_VALUES.SELECT,
       );
       break;
     }
@@ -2272,7 +2419,7 @@ function randomizeCategory(category) {
       const shuffled = [...options].sort(() => Math.random() - 0.5);
       const count = Math.min(
         shuffled.length,
-        Math.max(1, Math.floor(Math.random() * 4) + 1)
+        Math.max(1, Math.floor(Math.random() * 4) + 1),
       );
 
       setSelectedMultiValues(category.id, shuffled.slice(0, count));
@@ -2360,10 +2507,7 @@ function applyPreset(presetName) {
         break;
 
       case INPUT_TYPES.MULTI_CHIP:
-        setSelectedMultiValues(
-          category.id,
-          Array.isArray(value) ? value : []
-        );
+        setSelectedMultiValues(category.id, Array.isArray(value) ? value : []);
         break;
 
       case INPUT_TYPES.TEXTAREA:
@@ -2433,9 +2577,6 @@ function clearPromptOutput() {
 
   clearPromptVariations();
   clearPremiumOutputs();
-
-  updateCharacterCounter("");
-  updateQualityScore("");
 }
 
 function clearAll() {
@@ -2486,7 +2627,7 @@ function createPromptRecord(prompt) {
     id: crypto.randomUUID(),
     dateCreated: new Date().toLocaleString(),
     promptPreview: prompt.substring(0, 150),
-    fullPrompt: prompt
+    fullPrompt: prompt,
   };
 }
 
@@ -2512,7 +2653,7 @@ function savePrompt() {
 
 function deleteSavedPrompt(id) {
   appState.savedPrompts = appState.savedPrompts.filter(
-    (prompt) => prompt.id !== id
+    (prompt) => prompt.id !== id,
   );
 
   persistSavedPrompts();
@@ -2520,10 +2661,7 @@ function deleteSavedPrompt(id) {
 }
 
 function loadSavedPrompts() {
-  appState.savedPrompts = readStorage(
-    STORAGE_KEYS.SAVED_PROMPTS,
-    []
-  );
+  appState.savedPrompts = readStorage(STORAGE_KEYS.SAVED_PROMPTS, []);
 }
 
 function renderPromptHistory() {
@@ -2566,28 +2704,25 @@ function clearPromptVariations() {
 }
 
 function generatePromptVariations(prompt, inputData) {
-  const basePrompt = cleanText(prompt);
+  const sections = buildPromptSections(inputData);
 
-  if (!basePrompt) {
+  const creativeDirection = sections.selections.join(" ");
+  const userContent = sections.userContent.join(" ");
+
+  if (!cleanText(creativeDirection) && !cleanText(userContent)) {
     clearPromptVariations();
     return;
   }
 
   const variations = [
-    basePrompt,
+    `Create a polished faith-based luxury affirmation artwork image. ${creativeDirection} ${userContent} Give the image refined detail, natural depth, clean visual balance, realistic textures, and a professional finished appearance. Keep every selected subject detail, theme, setting, color, typography choice, lighting choice, composition, and affirmation exactly as provided. Display the affirmation clearly and beautifully as part of the finished artwork.`,
 
-    `${basePrompt}
+    `Create a finished faith-based luxury affirmation artwork image using these exact selections. ${creativeDirection} ${userContent} Strengthen the emotional atmosphere through thoughtful framing, dimensional lighting, elegant depth, and intentional visual storytelling. Preserve all selected details without replacing the subject, environment, style, palette, typography, composition, visual elements, or affirmation text.`,
 
-Increase the richness of descriptive details while preserving every user selection and maintaining the same creative intent.`,
+    `Create a premium faith-based affirmation artwork image. ${creativeDirection} ${userContent} Place strong emphasis on typography placement, text readability, spacing, hierarchy, and seamless integration of the affirmation into the artwork. Keep the visual scene sophisticated, cohesive, uncluttered, and professionally composed while preserving every user selection exactly.`,
 
-    `${basePrompt}
-
-Place greater emphasis on artistic direction, lighting, composition, premium visual quality, and refined craftsmanship while preserving all user content.`,
-
-    `${basePrompt}
-
-Present the scene with a premium editorial aesthetic, exceptional realism, elegant visual balance, and polished professional presentation without changing the requested subject, affirmation, or faith theme.`
-  ];
+    `Create a highly polished faith-based luxury affirmation artwork image. ${creativeDirection} ${userContent} Elevate the final presentation with graceful detail, refined craftsmanship, balanced contrast, realistic texture, emotional warmth, and a premium editorial finish. Do not change or substitute any selected category, subject detail, visual direction, or affirmation text. Render a complete finished image rather than a prompt template.`,
+  ].map((variation) => variation.replace(/\s+/g, " ").trim());
 
   appState.promptVariations = variations;
 
@@ -2598,139 +2733,12 @@ Present the scene with a premium editorial aesthetic, exceptional realism, elega
   });
 }
 
-/* ==========================================================
-   CHARACTER COUNTER
-========================================================== */
-
-function updateCharacterCounter(prompt) {
-  const length = cleanText(prompt).length;
-
-  safeSetText(
-    DOM.characterCounter,
-    `${length} Character${length === 1 ? "" : "s"}`
-  );
-}
-
-/* ==========================================================
-   PROMPT QUALITY CHECKER
-========================================================== */
-
-function calculateCompleteness(inputData) {
-  const totalCategories = CATEGORY_CONFIG.length;
-
-  const completed = CATEGORY_CONFIG.reduce((count, category) => {
-    const values = resolveCategoryValue(category, inputData);
-    return count + (values.length ? 1 : 0);
-  }, 0);
-
-  return Math.round((completed / totalCategories) * 25);
-}
-
-function calculateClarity(prompt) {
-  if (!prompt) {
-    return 0;
-  }
-
-  return Math.min(20, 20);
-}
-
-function calculateDetail(inputData) {
-  const detailCategories = [
-    "artworkStyle",
-    "environment",
-    "lighting",
-    "composition",
-    "visualDetails"
-  ];
-
-  const completed = detailCategories.filter((id) => {
-    const category = getCategoryConfig(id);
-    return resolveCategoryValue(category, inputData).length;
-  }).length;
-
-  return Math.round((completed / detailCategories.length) * 20);
-}
-
-function calculateReadability(prompt) {
-  if (!prompt) {
-    return 0;
-  }
-
-  return Math.min(15, 15);
-}
-
-function calculateMissingInformation(inputData) {
-  const important = [
-    "artworkStyle",
-    "subject",
-    "environment",
-    "affirmationText"
-  ];
-
-  const missing = important.filter((id) => {
-    const category = getCategoryConfig(id);
-    return resolveCategoryValue(category, inputData).length === 0;
-  }).length;
-
-  return Math.max(0, 10 - Math.round((missing / important.length) * 10));
-}
-
 function calculatePromptEffectiveness(prompt) {
   if (!prompt) {
     return 0;
   }
 
   return Math.min(10, 10);
-}
-
-function updateQualityScore(prompt = "", inputData = {}) {
-  if (!cleanText(prompt)) {
-    appState.quality = {
-      score: 0,
-      completeness: 0,
-      clarity: 0,
-      detail: 0,
-      readability: 0,
-      missingInformation: 0,
-      promptEffectiveness: 0
-    };
-  } else {
-    appState.quality.completeness = calculateCompleteness(inputData);
-    appState.quality.clarity = calculateClarity(prompt);
-    appState.quality.detail = calculateDetail(inputData);
-    appState.quality.readability = calculateReadability(prompt);
-    appState.quality.missingInformation =
-      calculateMissingInformation(inputData);
-    appState.quality.promptEffectiveness =
-      calculatePromptEffectiveness(prompt);
-
-    appState.quality.score =
-      appState.quality.completeness +
-      appState.quality.clarity +
-      appState.quality.detail +
-      appState.quality.readability +
-      appState.quality.missingInformation +
-      appState.quality.promptEffectiveness;
-  }
-
-  safeSetText(DOM.quality.overall, appState.quality.score);
-  safeSetText(DOM.quality.completeness, appState.quality.completeness);
-  safeSetText(DOM.quality.clarity, appState.quality.clarity);
-  safeSetText(DOM.quality.detail, appState.quality.detail);
-  safeSetText(DOM.quality.readability, appState.quality.readability);
-  safeSetText(
-    DOM.quality.missingInformation,
-    appState.quality.missingInformation
-  );
-  safeSetText(
-    DOM.quality.promptEffectiveness,
-    appState.quality.promptEffectiveness
-  );
-
-  safeSetText(
-    DOM.promptQualityScore,
-    `Quality Score: ${appState.quality.score}`
-  );
 }
 
 /* ==========================================================
@@ -2811,10 +2819,7 @@ function openModal(contentNode) {
 function handleApplicationError(error, fallbackMessage) {
   console.error(error);
 
-  showToast(
-    fallbackMessage || "An unexpected error occurred.",
-    "error"
-  );
+  showToast(fallbackMessage || "An unexpected error occurred.", "error");
 }
 
 window.addEventListener("error", (event) => {
@@ -2840,8 +2845,7 @@ function bindCategoryEvents(category) {
 
   if (toggle && content) {
     toggle.addEventListener("click", () => {
-      const expanded =
-        toggle.getAttribute("aria-expanded") === "true";
+      const expanded = toggle.getAttribute("aria-expanded") === "true";
 
       toggle.setAttribute("aria-expanded", String(!expanded));
       content.hidden = expanded;
@@ -2882,10 +2886,7 @@ function bindCategoryEvents(category) {
         return;
       }
 
-      setSelectedChipValue(
-        category.id,
-        chip.dataset.value
-      );
+      setSelectedChipValue(category.id, chip.dataset.value);
     });
   }
 
@@ -2923,7 +2924,6 @@ function bindCategoryEvents(category) {
       categoryState[category.id].value = event.target.value;
 
       if (category.id === "affirmationText") {
-        updateCharacterCounter(event.target.value);
       }
     });
   }
@@ -2935,8 +2935,7 @@ function bindCategoryEvents(category) {
 
     if (custom) {
       custom.addEventListener("input", (event) => {
-        categoryState[category.customId].value =
-          cleanText(event.target.value);
+        categoryState[category.customId].value = cleanText(event.target.value);
       });
     }
   }
@@ -2949,32 +2948,70 @@ function bindCategoryEvents(category) {
 function bindMainButtons() {
   DOM.generateButton?.addEventListener("click", generatePrompt);
 
+  DOM.generateSunoButton?.addEventListener("click", () => {
+    const inputData = collectInputData();
+    const sunoPrompt = generateSunoPrompt(inputData);
+
+    safeSetValue(DOM.premiumOutputs.suno, sunoPrompt);
+
+    DOM.premiumOutputs.suno?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+
+    showToast("Suno prompt generated.", "success");
+  });
+
+  DOM.generateCustomGptButton?.addEventListener("click", () => {
+    const inputData = collectInputData();
+    const gptData = collectCustomGptBuilderData();
+
+    if (!cleanText(gptData.gptName)) {
+      showToast("Enter a Custom GPT name first.", "error", 4000);
+
+      DOM.customGptBuilder.gptName?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+
+      return;
+    }
+
+    const customGptPrompt = generateCustomGptPrompt(inputData);
+
+    safeSetValue(DOM.premiumOutputs.customGpt, customGptPrompt);
+
+    DOM.premiumOutputs.customGpt?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+
+    showToast("Custom GPT instructions generated.", "success");
+  });
+
   DOM.randomizeButton?.addEventListener("click", () => {
     randomizeGenerator();
   });
 
   DOM.premiumCopyButtons.suno?.addEventListener("click", () => {
-  copyText(DOM.premiumOutputs.suno.value);
-});
+    copyText(DOM.premiumOutputs.suno.value);
+  });
 
-DOM.premiumCopyButtons.video?.addEventListener("click", () => {
-  copyText(DOM.premiumOutputs.video.value);
-});
+  DOM.premiumCopyButtons.video?.addEventListener("click", () => {
+    copyText(DOM.premiumOutputs.video.value);
+  });
 
-DOM.premiumCopyButtons.marketing?.addEventListener("click", () => {
-  copyText(DOM.premiumOutputs.marketing.value);
-});
+  DOM.premiumCopyButtons.marketing?.addEventListener("click", () => {
+    copyText(DOM.premiumOutputs.marketing.value);
+  });
 
-DOM.premiumCopyButtons.customGpt?.addEventListener("click", () => {
-  copyText(DOM.premiumOutputs.customGpt.value);
-});
+  DOM.premiumCopyButtons.customGpt?.addEventListener("click", () => {
+    copyText(DOM.premiumOutputs.customGpt.value);
+  });
 
   DOM.copyButton?.addEventListener("click", copyFinalPrompt);
 
-  DOM.copyFinalPromptButton?.addEventListener(
-    "click",
-    copyFinalPrompt
-  );
+  DOM.copyFinalPromptButton?.addEventListener("click", copyFinalPrompt);
 
   DOM.saveButton?.addEventListener("click", savePrompt);
 
@@ -3094,7 +3131,7 @@ function validateDomBindings() {
     DOM.saveButton,
     DOM.clearButton,
     DOM.finalPrompt,
-    DOM.historyContainer
+    DOM.historyContainer,
   ].forEach((element) => {
     if (!element) {
       console.warn("Missing required DOM element.");
@@ -3115,10 +3152,7 @@ function initializeApplication() {
 
     console.info(`${APP_NAME} initialized successfully.`);
   } catch (error) {
-    handleApplicationError(
-      error,
-      "Application failed to initialize."
-    );
+    handleApplicationError(error, "Application failed to initialize.");
   }
 }
 

@@ -7,16 +7,14 @@
       name="description"
       content="Faith-Based Luxury Affirmation Artwork Prompt Generator"
     />
-    <title>Faith-Based Luxury Affirmation Artwork Prompt Generator</title>
+    <title>Faith-Based Affirmation Prompt Generator</title>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
     <div class="app-wrapper">
       <header class="top-section" id="topSection">
-        <h1 class="app-title">
-          Faith-Based Luxury Affirmation Artwork Prompt Generator
-        </h1>
+        <h1 class="app-title">Faith-Based Affirmation Prompt Generator</h1>
         <div class="branding-container">
           <div class="announcement-bar">
             <div class="announcement-track">
@@ -982,16 +980,7 @@
               aria-label="Final Prompt"
             ></textarea>
 
-            <div class="prompt-output-footer">
-              <div class="prompt-output-meta">
-                <span id="characterCounter" class="character-counter">
-                  0 Characters
-                </span>
-
-                <span id="promptQualityScore" class="prompt-quality-score">
-                  Quality Score: 0
-                </span>
-              </div>
+           
 
               <div class="prompt-output-actions">
                 <button
@@ -1007,80 +996,546 @@
         </section>
 
         <section
+          class="category-card"
+          id="sunoMusicBuilderSection"
+          data-category="sunoMusicBuilder"
+        >
+          <button
+            type="button"
+            class="category-toggle"
+            id="sunoMusicBuilderToggle"
+            aria-expanded="true"
+            aria-controls="sunoMusicBuilderContent"
+          >
+            <span>Suno Music Builder</span>
+          </button>
+
+          <div class="category-content" id="sunoMusicBuilderContent">
+            <div class="category-header">
+              <label>Suno Music Builder</label>
+            </div>
+
+            <label for="musicFormat">Music Format</label>
+            <select id="musicFormat" name="musicFormat">
+              <option value="None">None</option>
+              <option value="Jingle">Jingle</option>
+              <option value="Full Song">Full Song</option>
+              <option value="Theme Song">Theme Song</option>
+              <option value="Intro Song">Intro Song</option>
+              <option value="Outro Song">Outro Song</option>
+              <option value="Commercial Song">Commercial Song</option>
+              <option value="Short Affirmation Song">
+                Short Affirmation Song
+              </option>
+            </select>
+
+            <label for="musicGenre">Genre</label>
+            <input
+              type="text"
+              id="musicGenre"
+              name="musicGenre"
+              placeholder="Example: Gospel, R&B, Soul, Pop, Country"
+              maxlength="120"
+              autocomplete="off"
+            />
+
+            <label for="musicReference">Musical Influence or Reference</label>
+            <input
+              type="text"
+              id="musicReference"
+              name="musicReference"
+              placeholder="Describe the sound or reference music you want"
+              maxlength="180"
+              autocomplete="off"
+            />
+
+            <label for="vocalType">Vocal Type</label>
+            <select id="vocalType" name="vocalType">
+              <option value="None">None</option>
+              <option value="Female Vocal">Female Vocal</option>
+              <option value="Male Vocal">Male Vocal</option>
+              <option value="Duet">Duet</option>
+              <option value="Choir">Choir</option>
+              <option value="Group Vocals">Group Vocals</option>
+              <option value="Child Vocal">Child Vocal</option>
+              <option value="Instrumental Only">Instrumental Only</option>
+            </select>
+
+            <label for="songLength">Song Length</label>
+            <select id="songLength" name="songLength">
+              <option value="None">None</option>
+              <option value="15 Seconds">15 Seconds</option>
+              <option value="30 Seconds">30 Seconds</option>
+              <option value="45 Seconds">45 Seconds</option>
+              <option value="60 Seconds">60 Seconds</option>
+              <option value="90 Seconds">90 Seconds</option>
+              <option value="2 Minutes">2 Minutes</option>
+              <option value="3 Minutes">3 Minutes</option>
+              <option value="4 Minutes">4 Minutes</option>
+            </select>
+
+            <label for="lyricsType">Lyrics Type</label>
+            <select id="lyricsType" name="lyricsType">
+              <option value="None">None</option>
+              <option value="Full Lyrics">Full Lyrics</option>
+              <option value="Short Lyrics">Short Lyrics</option>
+              <option value="Chorus Only">Chorus Only</option>
+              <option value="Hook Only">Hook Only</option>
+              <option value="Spoken Affirmation">Spoken Affirmation</option>
+              <option value="Instrumental">Instrumental</option>
+            </select>
+
+            <label for="musicMood">Mood</label>
+            <input
+              type="text"
+              id="musicMood"
+              name="musicMood"
+              placeholder="Example: uplifting, peaceful, bold, emotional"
+              maxlength="120"
+              autocomplete="off"
+            />
+
+            <label for="musicEnergy">Energy</label>
+            <select id="musicEnergy" name="musicEnergy">
+              <option value="None">None</option>
+              <option value="Soft">Soft</option>
+              <option value="Calm">Calm</option>
+              <option value="Moderate">Moderate</option>
+              <option value="Uplifting">Uplifting</option>
+              <option value="High Energy">High Energy</option>
+              <option value="Powerful">Powerful</option>
+            </select>
+
+            <label for="musicTempo">Tempo</label>
+            <select id="musicTempo" name="musicTempo">
+              <option value="None">None</option>
+              <option value="Slow">Slow</option>
+              <option value="Mid-Tempo">Mid-Tempo</option>
+              <option value="Upbeat">Upbeat</option>
+              <option value="Fast">Fast</option>
+            </select>
+
+            <label for="musicInstruments">Instrumentation</label>
+            <input
+              type="text"
+              id="musicInstruments"
+              name="musicInstruments"
+              placeholder="Example: piano, strings, choir, drums"
+              maxlength="180"
+              autocomplete="off"
+            />
+
+            <label for="songStructure">Song Structure</label>
+            <input
+              type="text"
+              id="songStructure"
+              name="songStructure"
+              placeholder="Example: verse, chorus, verse, bridge, final chorus"
+              maxlength="180"
+              autocomplete="off"
+            />
+
+            <label for="vocalDelivery">Vocal Delivery</label>
+            <input
+              type="text"
+              id="vocalDelivery"
+              name="vocalDelivery"
+              placeholder="Example: soulful, smooth, powerful, conversational"
+              maxlength="150"
+              autocomplete="off"
+            />
+
+            <label for="customLyrics">Custom Lyrics or Required Words</label>
+            <textarea
+              id="customLyrics"
+              name="customLyrics"
+              maxlength="700"
+              placeholder="Add lyrics, phrases, names, or words that must be included"
+            ></textarea>
+
+            <label for="musicAvoid">Words or Themes to Avoid</label>
+            <textarea
+              id="musicAvoid"
+              name="musicAvoid"
+              maxlength="400"
+              placeholder="Add anything the song should avoid"
+            ></textarea>
+
+            <label for="additionalMusicInstructions">
+              Additional Music Instructions
+            </label>
+            <textarea
+              id="additionalMusicInstructions"
+              name="additionalMusicInstructions"
+              maxlength="700"
+              placeholder="Add any final Suno music directions"
+            ></textarea>
+
+            <button
+              type="button"
+              id="generateSunoPromptBtn"
+              class="primary-action-btn"
+            >
+              Generate Suno Prompt
+            </button>
+          </div>
+        </section>
+
+        <section
+          class="category-card"
+          id="marketingContentBuilderSection"
+          data-category="marketingContentBuilder"
+        >
+          <button
+            type="button"
+            class="category-toggle"
+            id="marketingContentBuilderToggle"
+            aria-expanded="true"
+            aria-controls="marketingContentBuilderContent"
+          >
+            <span>Marketing Content Builder</span>
+          </button>
+
+          <div class="category-content" id="marketingContentBuilderContent">
+            <div class="category-header">
+              <label>Marketing Content Builder</label>
+            </div>
+
+            <label for="marketingGoal">Marketing Goal</label>
+            <select id="marketingGoal" name="marketingGoal">
+              <option value="None">None</option>
+              <option value="Promote the Artwork">Promote the Artwork</option>
+              <option value="Promote a Digital Product">
+                Promote a Digital Product
+              </option>
+              <option value="Drive Website Traffic">
+                Drive Website Traffic
+              </option>
+              <option value="Build Engagement">Build Engagement</option>
+              <option value="Grow an Email List">Grow an Email List</option>
+              <option value="Launch a New Product">Launch a New Product</option>
+              <option value="Make Sales">Make Sales</option>
+            </select>
+
+            <label for="marketingOfferName">Offer or Product Name</label>
+            <input
+              type="text"
+              id="marketingOfferName"
+              name="marketingOfferName"
+              placeholder="Example: Faith-Based Affirmation Prompt Generator"
+              maxlength="150"
+              autocomplete="off"
+            />
+
+            <label for="marketingAudience">Target Audience</label>
+            <input
+              type="text"
+              id="marketingAudience"
+              name="marketingAudience"
+              placeholder="Example: faith-based women, content creators, women 40+"
+              maxlength="180"
+              autocomplete="off"
+            />
+
+            <label for="marketingPlatform">Main Platform</label>
+            <select id="marketingPlatform" name="marketingPlatform">
+              <option value="None">None</option>
+              <option value="Pinterest">Pinterest</option>
+              <option value="TikTok">TikTok</option>
+              <option value="Instagram">Instagram</option>
+              <option value="Facebook">Facebook</option>
+              <option value="YouTube">YouTube</option>
+              <option value="Email">Email</option>
+              <option value="Multi-Platform">Multi-Platform</option>
+            </select>
+
+            <label for="marketingTone">Marketing Tone</label>
+            <select id="marketingTone" name="marketingTone">
+              <option value="None">None</option>
+              <option value="Luxury and Polished">Luxury and Polished</option>
+              <option value="Warm and Faith-Centered">
+                Warm and Faith-Centered
+              </option>
+              <option value="Bold and Confident">Bold and Confident</option>
+              <option value="Friendly and Relatable">
+                Friendly and Relatable
+              </option>
+              <option value="Direct and Sales-Focused">
+                Direct and Sales-Focused
+              </option>
+              <option value="Encouraging and Inspirational">
+                Encouraging and Inspirational
+              </option>
+            </select>
+
+            <label for="marketingCallToAction">Preferred Call to Action</label>
+            <input
+              type="text"
+              id="marketingCallToAction"
+              name="marketingCallToAction"
+              placeholder="Example: Shop now, click the link, save this pin"
+              maxlength="180"
+              autocomplete="off"
+            />
+
+            <label for="marketingLinkDestination">Link Destination</label>
+            <input
+              type="text"
+              id="marketingLinkDestination"
+              name="marketingLinkDestination"
+              placeholder="Example: product page, link in bio, email signup page"
+              maxlength="180"
+              autocomplete="off"
+            />
+
+            <label for="marketingContentType">Content Type Needed</label>
+            <select id="marketingContentType" name="marketingContentType">
+              <option value="None">None</option>
+              <option value="Pinterest Package">Pinterest Package</option>
+              <option value="TikTok Package">TikTok Package</option>
+              <option value="Instagram Package">Instagram Package</option>
+              <option value="Facebook Package">Facebook Package</option>
+              <option value="YouTube Package">YouTube Package</option>
+              <option value="Email Package">Email Package</option>
+              <option value="Full Marketing Package">
+                Full Marketing Package
+              </option>
+            </select>
+
+            <label for="marketingKeywords"
+              >Keywords or Phrases to Include</label
+            >
+            <textarea
+              id="marketingKeywords"
+              name="marketingKeywords"
+              maxlength="500"
+              placeholder="Add keywords, product phrases, or SEO terms to include"
+            ></textarea>
+
+            <label for="marketingAvoid"
+              >Words, Claims, or Topics to Avoid</label
+            >
+            <textarea
+              id="marketingAvoid"
+              name="marketingAvoid"
+              maxlength="400"
+              placeholder="Add anything the marketing should avoid"
+            ></textarea>
+
+            <label for="additionalMarketingInstructions">
+              Additional Marketing Instructions
+            </label>
+            <textarea
+              id="additionalMarketingInstructions"
+              name="additionalMarketingInstructions"
+              maxlength="700"
+              placeholder="Add any final marketing directions"
+            ></textarea>
+
+            <button
+              type="button"
+              id="generateMarketingPromptBtn"
+              class="primary-action-btn"
+            >
+              Generate Marketing Package
+            </button>
+          </div>
+        </section>
+
+        <section
+          class="category-card"
+          id="customGptBuilderSection"
+          data-category="customGptBuilder"
+        >
+          <button
+            type="button"
+            class="category-toggle"
+            id="customGptBuilderToggle"
+            aria-expanded="true"
+            aria-controls="customGptBuilderContent"
+          >
+            <span>Custom GPT Builder</span>
+          </button>
+
+          <div class="category-content" id="customGptBuilderContent">
+            <div class="category-header">
+              <label>Custom GPT Builder</label>
+            </div>
+
+            <p>
+              This will create Custom GPT instructions based on this generator
+              and its approved categories, options, workflow, and final output.
+            </p>
+
+            <label for="gptName">Custom GPT Name</label>
+            <input
+              type="text"
+              id="gptName"
+              name="gptName"
+              placeholder="Example: Faith-Based Affirmation Artwork Creator"
+              maxlength="120"
+              autocomplete="off"
+            />
+
+            <label for="gptAudience">Who Is This GPT For?</label>
+            <input
+              type="text"
+              id="gptAudience"
+              name="gptAudience"
+              placeholder="Example: beginners, faith-based women, content creators"
+              maxlength="180"
+              autocomplete="off"
+            />
+
+            <label for="gptTone">Tone and Personality</label>
+            <select id="gptTone" name="gptTone">
+              <option value="None">Use Generator Defaults</option>
+              <option value="Warm and Beginner-Friendly">
+                Warm and Beginner-Friendly
+              </option>
+              <option value="Professional and Polished">
+                Professional and Polished
+              </option>
+              <option value="Encouraging and Faith-Centered">
+                Encouraging and Faith-Centered
+              </option>
+              <option value="Direct and Simple">Direct and Simple</option>
+              <option value="Creative Director Style">
+                Creative Director Style
+              </option>
+            </select>
+
+            <label for="gptQuestionStyle">How Should It Ask Questions?</label>
+            <select id="gptQuestionStyle" name="gptQuestionStyle">
+              <option value="One Question at a Time">
+                One Question at a Time
+              </option>
+              <option value="Small Groups of Questions">
+                Small Groups of Questions
+              </option>
+              <option value="All Questions at Once">
+                All Questions at Once
+              </option>
+            </select>
+
+            <label for="gptResultCount"
+              >How Many Results Should It Create?</label
+            >
+            <select id="gptResultCount" name="gptResultCount">
+              <option value="One Polished Result">One Polished Result</option>
+              <option value="Two Options">Two Options</option>
+              <option value="Three Options">Three Options</option>
+            </select>
+
+            <label for="additionalGptInstructions">
+              Optional Extra Instructions
+            </label>
+            <textarea
+              id="additionalGptInstructions"
+              name="additionalGptInstructions"
+              maxlength="700"
+              placeholder="Add anything extra you want the Custom GPT to follow"
+            ></textarea>
+
+            <button
+              type="button"
+              id="generateCustomGptPromptBtn"
+              class="primary-action-btn"
+            >
+              Generate Custom GPT Instructions
+            </button>
+          </div>
+        </section>
+
+        <section
           class="premium-outputs-section"
           id="premiumOutputsSection"
           aria-labelledby="premiumOutputsHeading"
         >
           <h2 id="premiumOutputsHeading">Premium Outputs</h2>
 
-  <div class="premium-outputs-grid" id="premiumOutputsGrid">
+          <div class="premium-outputs-grid" id="premiumOutputsGrid">
+            <article class="premium-output-card">
+              <h3>Suno AI Music Prompt</h3>
+              <textarea
+                id="sunoPromptOutput"
+                class="premium-output-box"
+                readonly
+                aria-label="Suno AI Music Prompt"
+              ></textarea>
+              <button
+                type="button"
+                id="copySunoPromptBtn"
+                class="secondary-action-btn"
+              >
+                Copy Suno Prompt
+              </button>
+            </article>
 
-    <article class="premium-output-card">
-      <h3>Suno AI Music Prompt</h3>
-      <textarea
-        id="sunoPromptOutput"
-        class="premium-output-box"
-        readonly
-        aria-label="Suno AI Music Prompt"
-      ></textarea>
-      <button type="button" id="copySunoPromptBtn" class="secondary-action-btn">
-        Copy Suno Prompt
-      </button>
-    </article>
+            <article class="premium-output-card">
+              <h3>Video Script Prompt</h3>
+              <textarea
+                id="videoScriptOutput"
+                class="premium-output-box"
+                readonly
+                aria-label="Video Script Prompt"
+              ></textarea>
+              <button
+                type="button"
+                id="copyVideoScriptBtn"
+                class="secondary-action-btn"
+              >
+                Copy Video Script
+              </button>
+            </article>
 
-    <article class="premium-output-card">
-      <h3>Video Script Prompt</h3>
-      <textarea
-        id="videoScriptOutput"
-        class="premium-output-box"
-        readonly
-        aria-label="Video Script Prompt"
-      ></textarea>
-      <button type="button" id="copyVideoScriptBtn" class="secondary-action-btn">
-        Copy Video Script
-      </button>
-    </article>
+            <article class="premium-output-card">
+              <h3>Marketing Prompt</h3>
+              <textarea
+                id="marketingPromptOutput"
+                class="premium-output-box"
+                readonly
+                aria-label="Marketing Prompt"
+              ></textarea>
+              <button
+                type="button"
+                id="copyMarketingPromptBtn"
+                class="secondary-action-btn"
+              >
+                Copy Marketing Prompt
+              </button>
+            </article>
 
-    <article class="premium-output-card">
-      <h3>Marketing Prompt</h3>
-      <textarea
-        id="marketingPromptOutput"
-        class="premium-output-box"
-        readonly
-        aria-label="Marketing Prompt"
-      ></textarea>
-      <button type="button" id="copyMarketingPromptBtn" class="secondary-action-btn">
-        Copy Marketing Prompt
-      </button>
-    </article>
+            <article class="premium-output-card">
+              <h3>Custom GPT Builder Prompt</h3>
+              <textarea
+                id="customGptPromptOutput"
+                class="premium-output-box"
+                readonly
+                aria-label="Custom GPT Builder Prompt"
+              ></textarea>
+              <button
+                type="button"
+                id="copyCustomGptPromptBtn"
+                class="secondary-action-btn"
+              >
+                Copy GPT Builder Prompt
+              </button>
+            </article>
+          </div>
+        </section>
 
-    <article class="premium-output-card">
-      <h3>Custom GPT Builder Prompt</h3>
-      <textarea
-        id="customGptPromptOutput"
-        class="premium-output-box"
-        readonly
-        aria-label="Custom GPT Builder Prompt"
-      ></textarea>
-      <button type="button" id="copyCustomGptPromptBtn" class="secondary-action-btn">
-        Copy GPT Builder Prompt
-      </button>
-    </article>
-
-  </div>
-</section>
-</section>
+        <section
           class="prompt-variations-section"
           id="promptVariationsSection"
           aria-labelledby="promptVariationsHeading"
         >
-          <h2 id="promptVariationsHeading">Prompt Variations</h2>
-
           <div
             class="prompt-variations-container"
             id="promptVariationsContainer"
           >
             <article class="variation-card">
+              <h3>Variation 1</h3>
               <textarea
                 id="variationOutput1"
                 class="variation-output"
@@ -1098,6 +1553,7 @@
             </article>
 
             <article class="variation-card">
+              <h3>Variation 2</h3>
               <textarea
                 id="variationOutput2"
                 class="variation-output"
@@ -1115,6 +1571,7 @@
             </article>
 
             <article class="variation-card">
+              <h3>Variation 3</h3>
               <textarea
                 id="variationOutput3"
                 class="variation-output"
@@ -1132,6 +1589,7 @@
             </article>
 
             <article class="variation-card">
+              <h3>Variation 4</h3>
               <textarea
                 id="variationOutput4"
                 class="variation-output"
@@ -1177,59 +1635,12 @@
             </div>
           </article>
         </template>
-
-        <section
-          class="prompt-quality-checker-section"
-          id="promptQualityCheckerSection"
-          aria-labelledby="promptQualityCheckerHeading"
-        >
-          <h2 id="promptQualityCheckerHeading">Prompt Quality Checker</h2>
-
-          <div class="prompt-quality-card" id="promptQualityChecker">
-            <div class="quality-overall">
-              <span class="quality-label">Overall Score</span>
-              <span class="quality-value" id="qualityOverallScore"> 0 </span>
-            </div>
-
-            <div class="quality-breakdown">
-              <div class="quality-item">
-                <span>Completeness</span>
-                <span id="qualityCompleteness">0</span>
-              </div>
-
-              <div class="quality-item">
-                <span>Clarity</span>
-                <span id="qualityClarity">0</span>
-              </div>
-
-              <div class="quality-item">
-                <span>Detail</span>
-                <span id="qualityDetail">0</span>
-              </div>
-
-              <div class="quality-item">
-                <span>Readability</span>
-                <span id="qualityReadability">0</span>
-              </div>
-
-              <div class="quality-item">
-                <span>Missing Information</span>
-                <span id="qualityMissingInformation">0</span>
-              </div>
-
-              <div class="quality-item">
-                <span>Prompt Effectiveness</span>
-                <span id="qualityPromptEffectiveness">0</span>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
 
       <footer class="footer" id="footer">
         <div class="copyright-area" id="copyrightArea">
           <span id="copyrightText">
-            © <span id="copyrightYear"></span> Your Name or Brand
+            © <span id="copyrightYear"></span> GlamorousGrammyGlowup
           </span>
         </div>
       </footer>
